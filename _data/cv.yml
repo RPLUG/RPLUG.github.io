@@ -2,8 +2,8 @@
 
 cv:
   name: Jiayu Xu
-  headline: PhD Candidate in Chemical Engineering
-  location: Shanghai, China
+  headline: Ph.D. Student | Particle Simulation, GPU Computing, and Scientific AI
+  location: Huairou, Beijing, China
   email: rplug_jyxu@icloud.com
   website: https://rplug.github.io
 
@@ -12,22 +12,25 @@ cv:
       username: RPLUG
 
   sections:
+    Professional Summary:
+      - Ph.D. student in Chemical Engineering working on multi-GPU parallel computing, discrete element modelling, multiphysics coupling, and AI-assisted experiment-simulation integration. Developer of CUDA/MPI scientific software for large-scale complex-particle systems, with research spanning fundamental algorithms and industrial particulate processes.
+
     Research Interests:
       - Discrete element method (DEM) and GPU parallel computing
       - Non-spherical particles and multiphase-flow simulation
-      - CFD–DEM coupling and multiscale particle–fluid modelling
+      - CFD-DEM coupling and multiscale particle-fluid modelling
       - AI-assisted particle identification, tracking, and parameter inference
       - Numerical modelling of industrial particulate processes
 
     Education:
-      - institution: University of Chinese Academy of Sciences
+      - institution: Institute of Process Engineering, Chinese Academy of Sciences
         area: Chemical Engineering
-        degree: PhD Candidate
+        degree: Ph.D. Student
         start_date: 2021-09
         end_date: present
         location: Beijing, China
         highlights:
-          - Institute of Process Engineering, Chinese Academy of Sciences
+          - University of Chinese Academy of Sciences
           - "GPA: 3.70/4.00"
           - "Advisors: Prof. Ji Xu and Prof. Wei Ge"
           - Research on DEM, GPU computing, non-spherical particles, multiphase-flow simulation, and AI-assisted particle analysis
@@ -42,90 +45,83 @@ cv:
           - School of Chemical Engineering
           - "GPA: 3.73/4.00"
           - "Advisor: Prof. Yefeng Zhou"
-          - Research on CFD–DEM coupling, gas–solid fluidized beds, wet granular flows, and cohesive particle modelling
+          - Research on CFD-DEM coupling, gas-solid fluidized beds, wet granular flows, and cohesive-particle modelling
 
     Research Experience:
       - company: Institute of Process Engineering, Chinese Academy of Sciences
-        position: Gas–Solid Multiphase Flow and CFD–DEM Coupling
+        position: Large-Scale DEM and GPU-Accelerated Computing
+        start_date: 2022-09
+        end_date: present
+        location: Beijing, China
+        highlights:
+          - Developed a CUDA/MPI-based multi-GPU DEM framework for concave and convex polyhedral particles
+          - Enabled simulations of 20 million complex particles represented by approximately 12 billion triangular facets
+          - Achieved near-linear weak scaling and over 80 percent strong-scaling efficiency on 16 NVIDIA RTX 4090 GPUs
+          - Applied the framework to rotating drums, silo discharge, fixed beds, and particle packing
+
+      - company: Institute of Process Engineering, Chinese Academy of Sciences
+        position: Polyhedral-Particle CFD-DEM and Multiscale Gas-Solid Modelling
         start_date: 2025-01
         end_date: present
         location: Beijing, China
         highlights:
-          - Developed CFD–DEM coupled solvers for gas–solid fluidized beds, fluidized-bed reactors, and particle conveying systems
-          - Investigated multiscale particle–fluid methods including CG-DPM and MP-PIC
+          - Developed a CPU-GPU heterogeneous coupling framework integrating OpenFOAM with a polyhedral-particle DEM solver
+          - Investigated multiscale gas-solid methods including CG-DPM and MP-PIC
+          - Targeted fluidized beds, fixed beds, and industrial particle-conveying systems
 
       - company: Institute of Process Engineering, Chinese Academy of Sciences
-        position: Large-Scale DEM Simulation and High-Performance Computing
-        start_date: 2022-09
-        end_date: 2026-03
-        location: Beijing, China
-        highlights:
-          - Developed CUDA/MPI-based multi-GPU DEM algorithms for complex polyhedral particle systems
-          - Modelled concave and convex polyhedra and superquadric particles
-          - Applied the developed methods to rotary drums, hoppers, fixed beds, and granular piles
-          - Developed high-performance numerical software for large-scale particulate systems
-
-      - company: Institute of Process Engineering, Chinese Academy of Sciences
-        position: AI-Assisted Particle Modelling and Parameter Identification
+        position: AI-Assisted Particle Measurement and DEM Parameter Identification
         start_date: 2024-07
         end_date: 2026-02
         location: Beijing, China
         highlights:
-          - Developed deep-learning methods for irregular-particle image segmentation
-          - Reconstructed particle velocity fields from experimental images
-          - Predicted DEM model parameters through simulation–experiment integration
-
-      - company: Xiangtan University
-        position: Porous Carbon Preparation and CO₂ Adsorption
-        start_date: 2019-09
-        end_date: 2021-06
-        location: Xiangtan, China
-        highlights:
-          - Investigated porous carbon preparation from chitosan-derived hydrochar
-          - Analysed the effects of KOH activation and hydrothermal additives on pore structure and CO₂ capture performance
+          - Generated synthetic DEM datasets and trained Mask R-CNN models for irregular-particle image segmentation
+          - Reconstructed particle trajectories and velocity fields from high-speed experimental images
+          - Combined Vision Transformers, grid search, and CMA-ES optimization for rapid DEM contact-parameter identification
 
     Selected Projects:
-      - name: Quantitative Investigation of Discharge Rate in a High-Temperature Rotary Feeder
+      - name: Rotary Storage Device for Blast Furnace Slag
         start_date: 2024-05
         end_date: 2026-05
         summary: Industrial research project with Baosteel
         highlights:
-          - Developed a particle-flow model for a rotary feeder
-          - Analysed the effects of feeding mode, filling level, rotational speed, and outlet geometry
-          - Supported structural optimisation and operating-parameter selection
+          - Developed particle-flow models for a high-temperature rotary storage device
+          - Evaluated feeding mode, storage volume, rotation speed, and lifter geometry
+          - Supported uniform discharge and equipment optimization
 
-      - name: DEM Modelling of Wet-Particle Discharge from a Hopper
+      - name: DEM Simulation of Wet Granule Extrusion
         start_date: 2022-06
         end_date: 2024-08
+        summary: Industrial research project with Unilever
         highlights:
-          - Developed a wet-particle DEM model for hopper discharge
-          - Investigated the effects of formulation, moisture content, and process geometry
-          - Supported formulation optimisation and process scale-up
+          - Developed wet-particle DEM models for basket-granulation extrusion
+          - Investigated formulation, moisture content, extrusion force, and material flux
+          - Supported formulation optimization and process scale-up
 
-      - name: Quantitative Study of a High-Temperature Charging System
+      - name: Quantitative Modelling of Blast Furnace Burden Distribution
         start_date: 2019-09
         end_date: 2021-11
         summary: Industrial research project with Baosteel
         highlights:
-          - Constructed charging and burden-distribution models
+          - Modelled blast-furnace charging and burden distribution
           - Analysed burden trajectory, surface profile, ore-to-coke ratio, and particle-size distribution
-          - Supported operating optimisation and reduction of coke consumption
+          - Supported charging-strategy optimization and coke-ratio reduction
 
     Selected Publications:
       - title: DEM framework for large-scale concave and convex polyhedral particle systems with multiple GPUs
         authors:
           - "*Jiayu Xu*"
-          - Ji Xu
-          - Wei Ge
+          - Shuai Zhang
+          - Yong Zhang
           - et al.
         journal: Computational Mechanics
         date: "2026"
 
-      - title: Large-scale multiple-GPU DEM simulation of polyhedral particle systems
+      - title: Large-scale multiple-GPU-based DEM simulation of polyhedral particle systems
         authors:
           - "*Jiayu Xu*"
-          - Ji Xu
-          - Wei Ge
+          - Shuai Zhang
+          - Yong Zhang
           - et al.
         journal: Powder Technology
         date: "2026"
@@ -135,41 +131,46 @@ cv:
           - "*Jiayu Xu*"
           - Shuai Zhang
           - Wei Ge
-          - et al.
         journal: Powder Technology
         date: "2026"
 
       - title: Deep-learning-based property parameters identification for DEM simulations
         authors:
           - "*Jiayu Xu*"
-          - Ji Xu
-          - Wei Ge
+          - Shuai Zhang
+          - Haolei Zhang
           - et al.
         journal: Chemical Engineering Science
         date: "2026"
 
     Patents and Software:
-      - bullet: Invention patent for target-object detection methods, devices, electronic equipment, and storage media
-      - bullet: Invention patent for multi-GPU parallel computation of complex polyhedral particle systems
-      - bullet: Invention patent for multiphase-flow solid–fluid coupling methods
-      - bullet: "polyDEM V1.0 — complex-particle DEM simulation software, Registration No. 2025SR2431344"
-      - bullet: "DEMms V8.0 — GPU-based DEM software, Registration No. 2026SR0445479"
+      - bullet: Invention patent for object-detection methods, devices, electronic equipment, and storage media
+      - bullet: Invention patent for parallel computation of polyhedral DEM systems
+      - bullet: Invention patent for jet-based solid mixing
+      - bullet: "polyDEM V1.0-V2.0 - complex-particle DEM simulation software, Registration Nos. 2025SR2431344 and 2026SR0709452"
+      - bullet: "DEMms V8.0 - GPU-based DEM software, Registration No. 2026SR0445479"
 
     Skills:
       - label: Programming
-        details: C/C++, Python, MATLAB, CUDA, Shell
+        details: C/C++, Python, MATLAB, CUDA, and Shell
 
       - label: Parallel Computing
-        details: GPU computing, MPI, CPU/GPU heterogeneous computing, and domain decomposition
+        details: GPU computing, MPI, CPU-GPU heterogeneous computing, and domain decomposition
 
       - label: Numerical Methods
-        details: DEM, CFD–DEM, CG-DPM, MP-PIC, and MPS
+        details: DEM, CFD-DEM, CG-DPM, MP-PIC, and MPS
 
       - label: Artificial Intelligence
-        details: Machine learning, deep learning, image segmentation, particle tracking, and CMA-ES optimisation
+        details: Machine learning, deep learning, image segmentation, CMA-ES optimization, and LLM/AI-agent workflows
 
       - label: Software
-        details: Linux, Vim, Origin, AutoCAD, Aspen Plus, and Ansys Fluent
+        details: Linux, Vim, Origin, AutoCAD, 3ds Max, and Ansys Fluent
+
+    Languages:
+      - label: Chinese
+        details: Native
+      - label: English
+        details: CET-4 564; CET-6 472
 
     Honors and Awards:
       - bullet: Outstanding Graduate of Xiangtan University, 2021
