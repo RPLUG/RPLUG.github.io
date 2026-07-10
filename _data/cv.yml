@@ -10,10 +10,12 @@ cv:
   social_networks:
     - network: GitHub
       username: RPLUG
+    - network: ResearchGate
+      username: Jiayu-Xu-23
 
   sections:
     Professional Summary:
-      - Ph.D. student in Chemical Engineering working on multi-GPU parallel computing, discrete element modelling, multiphysics coupling, and AI-assisted experiment-simulation integration. Developer of CUDA/MPI scientific software for large-scale complex-particle systems, with research spanning fundamental algorithms and industrial particulate processes.
+      - Ph.D. student in Chemical Engineering at the Institute of Process Engineering, Chinese Academy of Sciences, working on multi-GPU parallel computing, discrete element modelling, multiphysics coupling, and AI-assisted experiment-simulation integration. Developer of CUDA/MPI scientific software for large-scale complex-particle systems, with research spanning fundamental algorithms and industrial particulate processes. Participated in industrial research projects with China Coal, Baosteel, and Unilever.
 
     Research Interests:
       - Discrete element method (DEM) and GPU parallel computing
@@ -107,41 +109,112 @@ cv:
           - Analysed burden trajectory, surface profile, ore-to-coke ratio, and particle-size distribution
           - Supported charging-strategy optimization and coke-ratio reduction
 
-    Selected Publications:
+    Publications:
       - title: DEM framework for large-scale concave and convex polyhedral particle systems with multiple GPUs
         authors:
-          - "*Jiayu Xu*"
+          - "**Jiayu Xu**"
           - Shuai Zhang
           - Yong Zhang
-          - et al.
+          - Haolei Zhang
+          - Duo Zhao
+          - Ji Xu
+          - Wei Ge
         journal: Computational Mechanics
         date: "2026"
+        doi: "10.1007/s00466-026-02781-y"
 
       - title: Large-scale multiple-GPU-based DEM simulation of polyhedral particle systems
         authors:
-          - "*Jiayu Xu*"
+          - "**Jiayu Xu**"
           - Shuai Zhang
           - Yong Zhang
-          - et al.
-        journal: Powder Technology
+          - Haolei Zhang
+          - Ji Xu
+          - Wei Ge
+        journal: Powder Technology, 472, 122132
         date: "2026"
+        doi: "10.1016/j.powtec.2026.122132"
 
       - title: An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration
         authors:
-          - "*Jiayu Xu*"
+          - "**Jiayu Xu**"
           - Shuai Zhang
           - Wei Ge
-        journal: Powder Technology
+        journal: Powder Technology, 468, 121681
         date: "2026"
+        doi: "10.1016/j.powtec.2025.121681"
 
       - title: Deep-learning-based property parameters identification for DEM simulations
         authors:
-          - "*Jiayu Xu*"
+          - "**Jiayu Xu**"
           - Shuai Zhang
           - Haolei Zhang
-          - et al.
-        journal: Chemical Engineering Science
+          - Ji Xu
+          - Wei Ge
+        journal: Chemical Engineering Science, 332, 124100
         date: "2026"
+        doi: "10.1016/j.ces.2026.124100"
+
+      - title: Multiscale mixing index for granular systems
+        authors:
+          - "**Jiayu Xu**"
+          - Feiguo Chen
+          - Ji Xu
+          - Wei Ge
+        journal: CIESC Journal, 75(6), 2214-2221
+        date: "2024"
+        doi: "10.11949/0438-1157.20240194"
+
+      - title: Numerical and experimental investigation of the effect of interstitial liquid viscosity on the collapse of wet granular columns
+        authors:
+          - Shuai Zhang
+          - "**Jiayu Xu**"
+          - Abul Hassan Syed
+          - Leina Hua
+          - Chuan-Yu Wu
+          - Guoping Lian
+          - Wei Ge
+        journal: Chemical Engineering Science, 301, 120725
+        date: "2025"
+        doi: "10.1016/j.ces.2024.120725"
+
+      - title: Coupled simulation method of CG-DPM and MP-PIC for gas-solid system
+        authors:
+          - Shuai Zhang
+          - "**Jiayu Xu**"
+          - Leina Hua
+          - Wei Ge
+        journal: CIESC Journal, 76(9), 4412-4424
+        date: "2025"
+        doi: "10.11949/0438-1157.20250599"
+
+      - title: Numerical investigation on the fast pyrolysis of large biomass particles in bubbling beds using the coupled particle-scale and coarse-grained CFD-DEM
+        authors:
+          - Guanlong Ren
+          - Ji Xu
+          - "**Jiayu Xu**"
+          - Ying Jia
+          - Wei Ge
+          - Henrik Ström
+          - Jinze Dai
+          - Qingang Xiong
+        journal: Chemical Engineering Journal, 540, 177360
+        date: "2026"
+        doi: "10.1016/j.cej.2026.177360"
+
+      - title: "Revolution of coarse-grained CFD-DEM technology and its application in fluidized beds: A comprehensive review"
+        authors:
+          - Guanlong Ren
+          - Ji Xu
+          - "**Jiayu Xu**"
+          - Yi Ouyang
+          - Henrik Ström
+          - Wei Ge
+          - Haijun Sun
+          - Qingang Xiong
+        journal: Particuology, 106, 45-69
+        date: "2025"
+        doi: "10.1016/j.partic.2025.08.017"
 
     Patents and Software:
       - bullet: Invention patent for object-detection methods, devices, electronic equipment, and storage media

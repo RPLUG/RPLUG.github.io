@@ -22,4 +22,4 @@ This research focuses on scalable numerical methods for particle-fluid systems. 
 
 ### Representative publication
 
-- [Coupled simulation method of CG-DPM and MP-PIC for gas-solid system](https://hgxb.cip.com.cn/CN/10.11949/0438-1157.20250599), *CIESC Journal* (2025, in Chinese).
+- [Coupled simulation method of CG-DPM and MP-PIC for gas-solid system](https://hgxb.cip.com.cn/CN/10.11949/0438-1157.20250599), _CIESC Journal_ (2025, in Chinese).

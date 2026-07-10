@@ -22,5 +22,5 @@ This work integrates high-speed imaging, DEM-generated synthetic data, and deep 
 
 ### Representative publications
 
-- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681), *Powder Technology* (2026).
-- [Deep-learning-based property parameters identification for DEM simulations](https://doi.org/10.1016/j.ces.2026.124100), *Chemical Engineering Science* (2026).
+- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681), _Powder Technology_ (2026).
+- [Deep-learning-based property parameters identification for DEM simulations](https://doi.org/10.1016/j.ces.2026.124100), _Chemical Engineering Science_ (2026).

@@ -1,0 +1,165 @@
+---
+---
+
+@charset "utf-8";
+
+@use "sass:math";
+@use "sass:string";
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+@use "themes";
+@use "layout";
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+// Site-specific visual system: dependable system typography and an ink-blue palette.
+:root {
+  --site-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "Noto Sans CJK SC", "Microsoft YaHei UI",
+    "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
+  --site-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  --global-bg-color: #f8fafc;
+  --global-code-bg-color: #eef3f7;
+  --global-text-color: #243447;
+  --global-text-color-light: #5f6f7e;
+  --global-theme-color: #1f5f8b;
+  --global-hover-color: #164a6d;
+  --global-hover-text-color: #ffffff;
+  --global-divider-color: #d8e1e8;
+  --global-card-bg-color: #ffffff;
+  --global-footer-bg-color: #eaf0f4;
+  --global-footer-text-color: #536575;
+  --global-footer-link-color: #1f5f8b;
+  --global-highlight-color: #dcebf4;
+  --global-distill-app-color: #1f5f8b;
+  --global-back-to-top-bg-color: rgba(31, 95, 139, 0.86);
+  --global-back-to-top-text-color: #ffffff;
+  --global-newsletter-bg-color: #edf3f7;
+  --global-newsletter-text-color: #243447;
+}
+
+html[data-theme="dark"] {
+  --global-bg-color: #111820;
+  --global-code-bg-color: #1b2833;
+  --global-text-color: #e6edf3;
+  --global-text-color-light: #aab8c5;
+  --global-theme-color: #78b7da;
+  --global-hover-color: #a8d1e8;
+  --global-hover-text-color: #111820;
+  --global-divider-color: #2c3b47;
+  --global-card-bg-color: #18232d;
+  --global-footer-bg-color: #0c1218;
+  --global-footer-text-color: #aab8c5;
+  --global-footer-link-color: #78b7da;
+  --global-highlight-color: #224157;
+  --global-distill-app-color: #78b7da;
+  --global-back-to-top-bg-color: rgba(120, 183, 218, 0.86);
+  --global-back-to-top-text-color: #111820;
+  --global-newsletter-bg-color: #18232d;
+  --global-newsletter-text-color: #e6edf3;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--site-font-sans);
+}
+
+body {
+  line-height: 1.68;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: var(--site-font-sans);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--site-font-mono);
+}
+
+.publications .preview img {
+  object-fit: contain;
+  background: #ffffff;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+}
+
+.project-media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.project-media-card {
+  margin: 0;
+  padding: 0.75rem;
+  overflow: hidden;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.85rem;
+  box-shadow: 0 0.4rem 1.2rem rgba(21, 43, 57, 0.08);
+}
+
+.project-media-card img,
+.project-media-card video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #0c1218;
+  border-radius: 0.55rem;
+}
+
+.project-media-card figcaption {
+  margin-top: 0.65rem;
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.project-media-wide {
+  max-width: 56rem;
+  margin: 0 auto 1.5rem;
+}
+
+.project-media-wide video {
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+@media (max-width: 36rem) {
+  .project-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-media-card {
+    padding: 0.55rem;
+  }
+}
