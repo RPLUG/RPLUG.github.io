@@ -1,11 +1,14 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.8/schema.json
-
 cv:
   name: Jiayu Xu
   headline: Ph.D. Student | Particle Simulation, GPU Computing, and Scientific AI
+  label: Ph.D. Student | Particle Simulation, GPU Computing, and Scientific AI
   location: Huairou, Beijing, China
+  address:
+    city: Huairou
+    region: Beijing, China
   email: rplug_jyxu@icloud.com
   website: https://rplug.github.io
+  summary: Ph.D. student in Chemical Engineering at the Institute of Process Engineering, Chinese Academy of Sciences, working on multi-GPU parallel computing, discrete element modelling, multiphysics coupling, and AI-assisted experiment-simulation integration. Developer of CUDA/MPI scientific software for large-scale complex-particle systems, with research spanning fundamental algorithms and industrial particulate processes. Participated in industrial research projects with China Coal, Baosteel, and Unilever.
 
   social_networks:
     - network: GitHub
@@ -14,15 +17,27 @@ cv:
       username: Jiayu-Xu-23
 
   sections:
-    Professional Summary:
-      - Ph.D. student in Chemical Engineering at the Institute of Process Engineering, Chinese Academy of Sciences, working on multi-GPU parallel computing, discrete element modelling, multiphysics coupling, and AI-assisted experiment-simulation integration. Developer of CUDA/MPI scientific software for large-scale complex-particle systems, with research spanning fundamental algorithms and industrial particulate processes. Participated in industrial research projects with China Coal, Baosteel, and Unilever.
-
-    Research Interests:
-      - Discrete element method (DEM) and GPU parallel computing
-      - Non-spherical particles and multiphase-flow simulation
-      - CFD-DEM coupling and multiscale particle-fluid modelling
-      - AI-assisted particle identification, tracking, and parameter inference
-      - Numerical modelling of industrial particulate processes
+    Academic Interests:
+      - name: Particle simulation
+        keywords:
+          - discrete element method (DEM)
+          - non-spherical particles
+          - GPU parallel computing
+      - name: Multiphase systems
+        keywords:
+          - CFD-DEM coupling
+          - multiscale particle-fluid modelling
+          - fluidized and fixed beds
+      - name: Scientific AI
+        keywords:
+          - particle identification and tracking
+          - DEM parameter inference
+          - experiment-simulation integration
+      - name: Industrial modelling
+        keywords:
+          - granular processing
+          - particle conveying
+          - process optimization
 
     Education:
       - institution: Institute of Process Engineering, Chinese Academy of Sciences
@@ -49,7 +64,7 @@ cv:
           - "Advisor: Prof. Yefeng Zhou"
           - Research on CFD-DEM coupling, gas-solid fluidized beds, wet granular flows, and cohesive-particle modelling
 
-    Research Experience:
+    Experience:
       - company: Institute of Process Engineering, Chinese Academy of Sciences
         position: Large-Scale DEM and GPU-Accelerated Computing
         start_date: 2022-09
@@ -81,11 +96,11 @@ cv:
           - Reconstructed particle trajectories and velocity fields from high-speed experimental images
           - Combined Vision Transformers, grid search, and CMA-ES optimization for rapid DEM contact-parameter identification
 
-    Selected Projects:
+    Projects:
       - name: Rotary Storage Device for Blast Furnace Slag
         start_date: 2024-05
         end_date: 2026-05
-        summary: Industrial research project with Baosteel
+        summary: Industrial research project with Baosteel (May 2024-May 2026)
         highlights:
           - Developed particle-flow models for a high-temperature rotary storage device
           - Evaluated feeding mode, storage volume, rotation speed, and lifter geometry
@@ -94,7 +109,7 @@ cv:
       - name: DEM Simulation of Wet Granule Extrusion
         start_date: 2022-06
         end_date: 2024-08
-        summary: Industrial research project with Unilever
+        summary: Industrial research project with Unilever (June 2022-August 2024)
         highlights:
           - Developed wet-particle DEM models for basket-granulation extrusion
           - Investigated formulation, moisture content, extrusion force, and material flux
@@ -103,7 +118,7 @@ cv:
       - name: Quantitative Modelling of Blast Furnace Burden Distribution
         start_date: 2019-09
         end_date: 2021-11
-        summary: Industrial research project with Baosteel
+        summary: Industrial research project with Baosteel (September 2019-November 2021)
         highlights:
           - Modelled blast-furnace charging and burden distribution
           - Analysed burden trajectory, surface profile, ore-to-coke ratio, and particle-size distribution
@@ -120,8 +135,11 @@ cv:
           - Ji Xu
           - Wei Ge
         journal: Computational Mechanics
+        publisher: Computational Mechanics
         date: "2026"
         doi: "10.1007/s00466-026-02781-y"
+        url: https://doi.org/10.1007/s00466-026-02781-y
+        summary: "**Jiayu Xu**, Shuai Zhang, Yong Zhang, Haolei Zhang, Duo Zhao, Ji Xu, and Wei Ge. DOI: [10.1007/s00466-026-02781-y](https://doi.org/10.1007/s00466-026-02781-y)"
 
       - title: Large-scale multiple-GPU-based DEM simulation of polyhedral particle systems
         authors:
@@ -132,8 +150,11 @@ cv:
           - Ji Xu
           - Wei Ge
         journal: Powder Technology, 472, 122132
+        publisher: Powder Technology, 472, 122132
         date: "2026"
         doi: "10.1016/j.powtec.2026.122132"
+        url: https://doi.org/10.1016/j.powtec.2026.122132
+        summary: "**Jiayu Xu**, Shuai Zhang, Yong Zhang, Haolei Zhang, Ji Xu, and Wei Ge. DOI: [10.1016/j.powtec.2026.122132](https://doi.org/10.1016/j.powtec.2026.122132)"
 
       - title: An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration
         authors:
@@ -141,8 +162,11 @@ cv:
           - Shuai Zhang
           - Wei Ge
         journal: Powder Technology, 468, 121681
+        publisher: Powder Technology, 468, 121681
         date: "2026"
         doi: "10.1016/j.powtec.2025.121681"
+        url: https://doi.org/10.1016/j.powtec.2025.121681
+        summary: "**Jiayu Xu**, Shuai Zhang, and Wei Ge. DOI: [10.1016/j.powtec.2025.121681](https://doi.org/10.1016/j.powtec.2025.121681)"
 
       - title: Deep-learning-based property parameters identification for DEM simulations
         authors:
@@ -152,8 +176,11 @@ cv:
           - Ji Xu
           - Wei Ge
         journal: Chemical Engineering Science, 332, 124100
+        publisher: Chemical Engineering Science, 332, 124100
         date: "2026"
         doi: "10.1016/j.ces.2026.124100"
+        url: https://doi.org/10.1016/j.ces.2026.124100
+        summary: "**Jiayu Xu**, Shuai Zhang, Haolei Zhang, Ji Xu, and Wei Ge. DOI: [10.1016/j.ces.2026.124100](https://doi.org/10.1016/j.ces.2026.124100)"
 
       - title: Multiscale mixing index for granular systems
         authors:
@@ -162,8 +189,11 @@ cv:
           - Ji Xu
           - Wei Ge
         journal: CIESC Journal, 75(6), 2214-2221
+        publisher: CIESC Journal, 75(6), 2214-2221
         date: "2024"
         doi: "10.11949/0438-1157.20240194"
+        url: https://doi.org/10.11949/0438-1157.20240194
+        summary: "**Jiayu Xu**, Feiguo Chen, Ji Xu, and Wei Ge. DOI: [10.11949/0438-1157.20240194](https://doi.org/10.11949/0438-1157.20240194)"
 
       - title: Numerical and experimental investigation of the effect of interstitial liquid viscosity on the collapse of wet granular columns
         authors:
@@ -175,8 +205,11 @@ cv:
           - Guoping Lian
           - Wei Ge
         journal: Chemical Engineering Science, 301, 120725
+        publisher: Chemical Engineering Science, 301, 120725
         date: "2025"
         doi: "10.1016/j.ces.2024.120725"
+        url: https://doi.org/10.1016/j.ces.2024.120725
+        summary: "Shuai Zhang, **Jiayu Xu**, Abul Hassan Syed, Leina Hua, Chuan-Yu Wu, Guoping Lian, and Wei Ge. DOI: [10.1016/j.ces.2024.120725](https://doi.org/10.1016/j.ces.2024.120725)"
 
       - title: Coupled simulation method of CG-DPM and MP-PIC for gas-solid system
         authors:
@@ -185,8 +218,11 @@ cv:
           - Leina Hua
           - Wei Ge
         journal: CIESC Journal, 76(9), 4412-4424
+        publisher: CIESC Journal, 76(9), 4412-4424
         date: "2025"
         doi: "10.11949/0438-1157.20250599"
+        url: https://doi.org/10.11949/0438-1157.20250599
+        summary: "Shuai Zhang, **Jiayu Xu**, Leina Hua, and Wei Ge. DOI: [10.11949/0438-1157.20250599](https://doi.org/10.11949/0438-1157.20250599)"
 
       - title: Numerical investigation on the fast pyrolysis of large biomass particles in bubbling beds using the coupled particle-scale and coarse-grained CFD-DEM
         authors:
@@ -199,8 +235,11 @@ cv:
           - Jinze Dai
           - Qingang Xiong
         journal: Chemical Engineering Journal, 540, 177360
+        publisher: Chemical Engineering Journal, 540, 177360
         date: "2026"
         doi: "10.1016/j.cej.2026.177360"
+        url: https://doi.org/10.1016/j.cej.2026.177360
+        summary: "Guanlong Ren, Ji Xu, **Jiayu Xu**, Ying Jia, Wei Ge, Henrik Ström, Jinze Dai, and Qingang Xiong. DOI: [10.1016/j.cej.2026.177360](https://doi.org/10.1016/j.cej.2026.177360)"
 
       - title: "Revolution of coarse-grained CFD-DEM technology and its application in fluidized beds: A comprehensive review"
         authors:
@@ -213,8 +252,11 @@ cv:
           - Haijun Sun
           - Qingang Xiong
         journal: Particuology, 106, 45-69
+        publisher: Particuology, 106, 45-69
         date: "2025"
         doi: "10.1016/j.partic.2025.08.017"
+        url: https://doi.org/10.1016/j.partic.2025.08.017
+        summary: "Guanlong Ren, Ji Xu, **Jiayu Xu**, Yi Ouyang, Henrik Ström, Wei Ge, Haijun Sun, and Qingang Xiong. DOI: [10.1016/j.partic.2025.08.017](https://doi.org/10.1016/j.partic.2025.08.017)"
 
     Patents and Software:
       - bullet: Invention patent for object-detection methods, devices, electronic equipment, and storage media
@@ -224,29 +266,67 @@ cv:
       - bullet: "DEMms V8.0 - GPU-based DEM software, Registration No. 2026SR0445479"
 
     Skills:
-      - label: Programming
-        details: C/C++, Python, MATLAB, CUDA, and Shell
+      - name: Programming
+        keywords:
+          - C/C++
+          - Python
+          - MATLAB
+          - CUDA
+          - Shell
 
-      - label: Parallel Computing
-        details: GPU computing, MPI, CPU-GPU heterogeneous computing, and domain decomposition
+      - name: Parallel computing
+        keywords:
+          - GPU computing
+          - MPI
+          - CPU-GPU heterogeneous computing
+          - domain decomposition
 
-      - label: Numerical Methods
-        details: DEM, CFD-DEM, CG-DPM, MP-PIC, and MPS
+      - name: Numerical methods
+        keywords:
+          - DEM
+          - CFD-DEM
+          - CG-DPM
+          - MP-PIC
+          - MPS
 
-      - label: Artificial Intelligence
-        details: Machine learning, deep learning, image segmentation, CMA-ES optimization, and LLM/AI-agent workflows
+      - name: Artificial intelligence
+        keywords:
+          - machine learning
+          - deep learning
+          - image segmentation
+          - CMA-ES optimization
+          - LLM and AI-agent workflows
 
-      - label: Software
-        details: Linux, Vim, Origin, AutoCAD, 3ds Max, and Ansys Fluent
+      - name: Software
+        keywords:
+          - Linux
+          - Vim
+          - Origin
+          - AutoCAD
+          - 3ds Max
+          - Ansys Fluent
 
     Languages:
-      - label: Chinese
-        details: Native
-      - label: English
-        details: CET-4 564; CET-6 472
+      - name: Chinese
+        summary: Native
+      - name: English
+        summary: CET-4 564; CET-6 472
+
+    Profiles:
+      - bullet: "[GitHub](https://github.com/RPLUG)"
+      - bullet: "[ResearchGate](https://www.researchgate.net/profile/Jiayu-Xu-23)"
 
     Honors and Awards:
-      - bullet: Outstanding Graduate of Xiangtan University, 2021
-      - bullet: Zhanchen Enterprise Scholarship, 2020
-      - bullet: First-Class Scholarship of Xiangtan University, 2018, 2019, and 2020
-      - bullet: Third Prize, National College Chemical Engineering Design Competition, 2018
+      - title: Outstanding Graduate
+        awarder: Xiangtan University
+        date: "2021"
+      - title: Zhanchen Enterprise Scholarship
+        awarder: Xiangtan University
+        date: "2020"
+      - title: First-Class Scholarship
+        awarder: Xiangtan University
+        date: "2018-2020"
+        summary: Awarded in 2018, 2019, and 2020.
+      - title: Third Prize, National College Chemical Engineering Design Competition
+        awarder: China National Chemical Engineering Design Competition
+        date: "2018"
