@@ -1,0 +1,23 @@
+Multi-GPU DEM for Complex Particles:
+  title: 复杂颗粒体系的多 GPU 离散元模拟
+  description: 面向大规模凹、凸多面体颗粒体系的可扩展 CUDA/MPI 算法。
+
+AI-Assisted Particle Measurement:
+  title: AI 辅助颗粒测量
+  description: 融合深度学习与模拟—实验方法，实现颗粒跟踪和 DEM 参数识别。
+
+Particle-Fluid and Multiscale Modelling:
+  title: 颗粒—流体耦合与多尺度建模
+  description: 用于复杂多相流和自由表面流的 CFD-DEM、CG-DPM、MP-PIC 与 MPS 方法。
+
+Rotary Slag-Storage Device:
+  title: 高炉渣旋转储料装置
+  description: 采用 DEM 分析高温旋转装置的排料速率与运行稳定性。
+
+Wet Granule Extrusion:
+  title: 湿颗粒挤出
+  description: 面向配方优化和篮式造粒放大的湿颗粒 DEM 建模。
+
+Blast-Furnace Burden Distribution:
+  title: 高炉炉料分布
+  description: 面向布料策略优化与降低焦比的定量颗粒建模。

@@ -186,6 +186,62 @@ footer.fixed-bottom .container strong {
   color: var(--global-footer-text-color);
 }
 
+body #navbar.navbar.navbar-light .language-switch {
+  display: flex;
+  align-items: center;
+  margin-left: 0.35rem;
+}
+
+body #navbar.navbar.navbar-light .language-switch__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.7rem;
+  padding: 0.3rem 0.6rem !important;
+  color: var(--site-navbar-text) !important;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  border: 1px solid color-mix(in srgb, var(--site-navbar-text) 42%, transparent);
+  border-radius: 999px;
+}
+
+body #navbar.navbar.navbar-light .language-switch__link:hover,
+body #navbar.navbar.navbar-light .language-switch__link:focus-visible {
+  color: var(--site-navbar-bg) !important;
+  text-decoration: none;
+  background: var(--site-navbar-active);
+  border-color: var(--site-navbar-active);
+}
+
+.language-page-note {
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.5rem;
+  color: var(--global-text-color-light);
+  background: color-mix(in srgb, var(--global-theme-color) 7%, var(--global-card-bg-color));
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 0.4rem;
+}
+
+.language-page-note p,
+.cv-zh__downloads {
+  margin: 0;
+}
+
+.cv-zh .card h3 {
+  margin-top: 1.1rem;
+  font-size: 1.05rem;
+}
+
+.cv-zh .card h3:first-of-type {
+  margin-top: 0.65rem;
+}
+
+.cv-zh .card ul {
+  margin-bottom: 0.4rem;
+}
+
 code,
 kbd,
 pre,
@@ -530,7 +586,26 @@ samp {
   }
 }
 
+@media (min-width: 36.01rem) and (max-width: 48rem) {
+  body #navbar.navbar.navbar-light .navbar-nav .nav-item .nav-link {
+    padding-right: 0.35rem;
+    padding-left: 0.35rem;
+  }
+
+  body #navbar.navbar.navbar-light #search-toggle .nav-link {
+    font-size: 0;
+  }
+
+  body #navbar.navbar.navbar-light #search-toggle .nav-link i {
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 36rem) {
+  body #navbar.navbar.navbar-light .language-switch {
+    margin: 0.45rem 0 0.2rem;
+  }
+
   .post:has(.research-overview) .post-header {
     padding: 1.2rem 1.15rem 1.25rem;
     margin-bottom: 1.35rem;

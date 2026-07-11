@@ -1,0 +1,47 @@
+languages:
+  en:
+    code: en
+    label: EN
+  zh:
+    code: zh-CN
+    label: 中文
+
+nav:
+  - en_path: /
+    en_title: about
+    zh_path: /zh/
+    zh_title: 关于
+  - en_path: /research/
+    en_title: research
+    zh_path: /zh/research/
+    zh_title: 研究
+  - en_path: /publications/
+    en_title: publications
+    zh_path: /zh/publications/
+    zh_title: 论文
+  - en_path: /cv/
+    en_title: CV
+    zh_path: /zh/cv/
+    zh_title: 简历
+
+routes:
+  - en: /
+    zh: /zh/
+  - en: /research/
+    zh: /zh/research/
+  - en: /publications/
+    zh: /zh/publications/
+  - en: /cv/
+    zh: /zh/cv/
+  - en: /projects/1_project/
+    zh: /zh/projects/1_project/
+  - en: /projects/2_project/
+    zh: /zh/projects/2_project/
+  - en: /projects/3_project/
+    zh: /zh/projects/3_project/
+  - en: /projects/4_project/
+    zh: /zh/projects/4_project/
+  - en: /projects/5_project/
+    zh: /zh/projects/5_project/
+  - en: /projects/6_project/
+    zh: /zh/projects/6_project/
