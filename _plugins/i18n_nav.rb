@@ -89,9 +89,9 @@ module RplugI18n
     pattern = %r{(<a\s+class="nav-link"\s+href="#{Regexp.escape(english_href)}">)(.*?)(</a>)}m
 
     output.gsub!(pattern) do
-      opening = Regexp.last_match(1).sub(%r{href="[^"]+"}, %(href="#{chinese_href}"))
-      body = Regexp.last_match(2)
-      closing = Regexp.last_match(3)
+      match = Regexp.last_match
+      opening, body, closing = match.captures
+      opening = opening.sub(%r{href="[^"]+"}, %(href="#{chinese_href}"))
       current = body[%r{<span class="sr-only">.*?</span>}m].to_s
       "#{opening}#{CGI.escapeHTML(entry["zh_title"].to_s)}#{current}#{closing}"
     end
