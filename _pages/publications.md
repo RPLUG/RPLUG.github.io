@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
+title: Publications
 description: Peer-reviewed articles and current manuscripts on particle simulation, multiphase flow, and scientific computing.
 nav: true
 nav_order: 2

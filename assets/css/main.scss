@@ -21,10 +21,9 @@
 @use "teachings";
 @use "typograms";
 
-// Site-specific visual system: a warm academic palette with modern system typography.
+// Site-specific visual system: a warm academic palette with Times-based typography.
 :root {
-  --site-font-sans: "Aptos", "Segoe UI Variable Text", "Segoe UI", "Noto Sans", "Noto Sans SC", "Microsoft YaHei UI",
-    "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  --site-font-sans: "Times New Roman", Times, "Noto Serif SC", "Songti SC", SimSun, serif;
   --site-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   --site-navbar-bg: #17324d;
   --site-navbar-text: #f8fbff;
@@ -97,6 +96,23 @@ html body textarea,
 html body .post,
 html body .cv,
 html body .cv table,
+html body .cv p,
+html body .cv li,
+html body .cv td,
+html body .cv th,
+html body .cv h1,
+html body .cv h2,
+html body .cv h3,
+html body .cv h4,
+html body .cv h5,
+html body .cv h6,
+html body .cv a,
+html body .cv span,
+html body .cv strong,
+html body .cv em,
+html body .cv .card-text,
+html body .cv .title,
+html body .cv .location,
 html body .profile .more-info,
 html body .publications,
 html body #toc-sidebar,
@@ -160,6 +176,14 @@ body #navbar .navbar-toggler .icon-bar {
 
 body .cv .font-weight-light {
   font-weight: 400 !important;
+}
+
+body .cv .card > p,
+body .cv .card-text {
+  font-family: var(--site-font-sans) !important;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.68;
 }
 
 body .cv .card {

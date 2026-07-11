@@ -1,6 +1,6 @@
 ---
 layout: page
-title: research
+title: Research
 permalink: /research/
 description: Research themes spanning particulate systems, high-performance scientific computing, and AI-assisted modelling, with selected industrial applications.
 nav: true
@@ -81,6 +81,7 @@ horizontal: false
 
 {% else %}
 {% assign sorted_projects = site.projects | sort: "importance" %}
+
 <div class="row row-cols-1 row-cols-md-3">
 {% for project in sorted_projects %}
 {% include projects.liquid %}

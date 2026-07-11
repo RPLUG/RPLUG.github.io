@@ -8,15 +8,15 @@ languages:
 
 nav:
   - en_path: /
-    en_title: about
+    en_title: About
     zh_path: /zh/
     zh_title: 关于
   - en_path: /research/
-    en_title: research
+    en_title: Research
     zh_path: /zh/research/
     zh_title: 研究
   - en_path: /publications/
-    en_title: publications
+    en_title: Publications
     zh_path: /zh/publications/
     zh_title: 论文
   - en_path: /cv/

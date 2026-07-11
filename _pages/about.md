@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: Ph.D. Student in Chemical Engineering · Institute of Process Engineering, Chinese Academy of Sciences
 
