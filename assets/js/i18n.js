@@ -1,0 +1,1 @@
+(()=>{const t=document.currentScript,e=t?.dataset.language;e&&(document.documentElement.lang=e)})();
