@@ -54,7 +54,6 @@ lang: zh-CN
   </video>
   <figcaption>大规模多 GPU 多面体颗粒模拟</figcaption>
 </figure>
-</div>
 
 <figure class="project-media-card project-media-wide">
   <video controls preload="metadata" playsinline poster="{{ '/assets/img/publication_preview/convex_multigpu_dem.png' | relative_url }}">
@@ -63,6 +62,7 @@ lang: zh-CN
   </video>
   <figcaption>Claude Plus DeepseekV4 </figcaption>
 </figure>
+
 </div>
 
 <script defer src="{{ '/assets/js/i18n.js' | relative_url }}" data-language="zh-CN"></script>
