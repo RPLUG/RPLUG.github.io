@@ -54,7 +54,15 @@ lang: zh-CN
   </video>
   <figcaption>大规模多 GPU 多面体颗粒模拟</figcaption>
 </figure>
+</div>
 
+<figure class="project-media-card project-media-wide">
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/publication_preview/convex_multigpu_dem.png' | relative_url }}">
+    <source src="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}" type="video/mp4">
+    您的浏览器不支持嵌入式视频。<a href="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}">打开 MP4 文件</a>。
+  </video>
+  <figcaption>Claude Plus DeepseekV4 </figcaption>
+</figure>
 </div>
 
 <script defer src="{{ '/assets/js/i18n.js' | relative_url }}" data-language="zh-CN"></script>
