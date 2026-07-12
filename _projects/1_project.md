@@ -51,3 +51,11 @@ The following original animations show representative packing systems and a larg
   </video>
   <figcaption>Large-scale multi-GPU polyhedral-particle simulation</figcaption>
 </figure>
+
+<figure class="project-media-card project-media-wide">
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/publication_preview/convex_multigpu_dem.png' | relative_url }}">
+    <source src="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support embedded video. <a href="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}">Open the MP4 file</a>.
+  </video>
+  <figcaption>Large-scale multi-GPU polyhedral-particle simulation</figcaption>
+</figure>

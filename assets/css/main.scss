@@ -21,64 +21,165 @@
 @use "teachings";
 @use "typograms";
 
-// Site-specific visual system: a warm academic palette with Times-based typography.
-:root {
+// Site-specific visual system: a light academic palette with Times-based typography.
+:root,
+html[data-theme="light"] {
   --site-font-sans: "Times New Roman", Times, "Noto Serif SC", "Songti SC", SimSun, serif;
   --site-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-  --site-navbar-bg: #17324d;
-  --site-navbar-text: #f8fbff;
-  --site-navbar-active: #7dd3c7;
-  --global-bg-color: #f3f0e8;
-  --global-code-bg-color: #ebe6da;
-  --global-text-color: #1d2b36;
-  --global-text-color-light: #5b6870;
-  --global-theme-color: #0f6b68;
-  --global-hover-color: #0a4f4d;
+  --bs-body-font-family: var(--site-font-sans);
+  --bs-font-sans-serif: var(--site-font-sans);
+  --font-family-sans-serif: var(--site-font-sans);
+  --site-navbar-bg: #edf4f5;
+  --site-navbar-text: #344b55;
+  --site-navbar-active: #3f7774;
+  --site-placeholder-bg: #dcecea;
+  --site-placeholder-text: #315e5c;
+  --global-bg-color: #f7f9f8;
+  --global-code-bg-color: #eef2f1;
+  --global-text-color: #2f3b43;
+  --global-text-color-light: #64737a;
+  --global-theme-color: #3b716e;
+  --global-hover-color: #376966;
   --global-hover-text-color: #ffffff;
-  --global-divider-color: #d9d2c3;
-  --global-card-bg-color: #fffdf8;
-  --global-footer-bg-color: #17324d;
-  --global-footer-text-color: #e7eef3;
-  --global-footer-link-color: #9ddbd4;
-  --global-highlight-color: #cfe8e3;
-  --global-distill-app-color: #0f6b68;
-  --global-back-to-top-bg-color: rgba(15, 107, 104, 0.9);
+  --global-divider-color: #dde5e4;
+  --global-card-bg-color: #ffffff;
+  --global-footer-bg-color: #e8f1f1;
+  --global-footer-text-color: #465b62;
+  --global-footer-link-color: #376f6d;
+  --global-highlight-color: #dcecea;
+  --global-distill-app-color: #3b716e;
+  --global-back-to-top-bg-color: rgba(59, 113, 110, 0.9);
   --global-back-to-top-text-color: #ffffff;
-  --global-newsletter-bg-color: #fffdf8;
-  --global-newsletter-text-color: #1d2b36;
+  --global-newsletter-bg-color: #f1f6f5;
+  --global-newsletter-text-color: #2f3b43;
 }
 
 html[data-theme="dark"] {
-  --site-navbar-bg: #091620;
-  --site-navbar-text: #f2f8fa;
-  --site-navbar-active: #73c6c2;
-  --global-bg-color: #101a22;
-  --global-code-bg-color: #21333e;
-  --global-text-color: #edf3f5;
-  --global-text-color-light: #a9bcc5;
-  --global-theme-color: #73c6c2;
-  --global-hover-color: #a2e0dc;
-  --global-hover-text-color: #101a22;
-  --global-divider-color: #2d4350;
-  --global-card-bg-color: #182631;
-  --global-footer-bg-color: #091620;
-  --global-footer-text-color: #c8d7de;
-  --global-footer-link-color: #73c6c2;
-  --global-highlight-color: #28554f;
-  --global-distill-app-color: #73c6c2;
-  --global-back-to-top-bg-color: rgba(115, 198, 194, 0.9);
-  --global-back-to-top-text-color: #101a22;
-  --global-newsletter-bg-color: #182631;
-  --global-newsletter-text-color: #edf3f5;
+  --site-navbar-bg: #26383b;
+  --site-navbar-text: #eef5f3;
+  --site-navbar-active: #b2d9d3;
+  --site-placeholder-bg: #35514d;
+  --site-placeholder-text: #dcece8;
+  --global-bg-color: #1e2a2d;
+  --global-code-bg-color: #2b3a3d;
+  --global-text-color: #eef3f1;
+  --global-text-color-light: #b8c6c3;
+  --global-theme-color: #a6d4cd;
+  --global-hover-color: #c8e6e1;
+  --global-hover-text-color: #1e2a2d;
+  --global-divider-color: #3b4c4f;
+  --global-card-bg-color: #263438;
+  --global-footer-bg-color: #243437;
+  --global-footer-text-color: #d6e2df;
+  --global-footer-link-color: #a6d4cd;
+  --global-highlight-color: #35514d;
+  --global-distill-app-color: #a6d4cd;
+  --global-back-to-top-bg-color: rgba(166, 212, 205, 0.9);
+  --global-back-to-top-text-color: #1e2a2d;
+  --global-newsletter-bg-color: #263438;
+  --global-newsletter-text-color: #eef3f1;
 }
 
-html,
-body,
-button,
-input,
-select,
-textarea {
-  font-family: var(--site-font-sans);
+html body,
+html body
+  :where(
+    a,
+    abbr,
+    address,
+    article,
+    aside,
+    b,
+    blockquote,
+    button,
+    caption,
+    cite,
+    dd,
+    details,
+    dialog,
+    div,
+    dl,
+    dt,
+    em,
+    fieldset,
+    figcaption,
+    figure,
+    footer,
+    form,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    header,
+    input,
+    label,
+    legend,
+    li,
+    main,
+    mark,
+    nav,
+    ol,
+    optgroup,
+    option,
+    output,
+    p,
+    q,
+    section,
+    select,
+    small,
+    span,
+    strong,
+    sub,
+    summary,
+    sup,
+    table,
+    tbody,
+    td,
+    textarea,
+    tfoot,
+    th,
+    thead,
+    time,
+    tr,
+    ul
+  ):not(
+    :where(
+      code,
+      code *,
+      pre,
+      pre *,
+      kbd,
+      kbd *,
+      samp,
+      samp *,
+      .fa,
+      .fas,
+      .far,
+      .fab,
+      .fal,
+      .fad,
+      .fa-solid,
+      .fa-regular,
+      .fa-brands,
+      [class^="fa-"],
+      [class*=" fa-"],
+      .ai,
+      [class^="ai-"],
+      [class*=" ai-"],
+      .material-icons,
+      [class^="material-symbols"],
+      .ps-root,
+      .ps-root *,
+      mjx-container,
+      mjx-container *,
+      .MathJax,
+      .MathJax *,
+      .katex,
+      .katex *
+    )
+  ) {
+  font-family: var(--site-font-sans) !important;
 }
 
 body {
@@ -86,38 +187,6 @@ body {
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-html body,
-html body button,
-html body input,
-html body select,
-html body textarea,
-html body .post,
-html body .cv,
-html body .cv table,
-html body .cv p,
-html body .cv li,
-html body .cv td,
-html body .cv th,
-html body .cv h1,
-html body .cv h2,
-html body .cv h3,
-html body .cv h4,
-html body .cv h5,
-html body .cv h6,
-html body .cv a,
-html body .cv span,
-html body .cv strong,
-html body .cv em,
-html body .cv .card-text,
-html body .cv .title,
-html body .cv .location,
-html body .profile .more-info,
-html body .publications,
-html body #toc-sidebar,
-html body footer {
-  font-family: var(--site-font-sans) !important;
 }
 
 h1,
@@ -135,8 +204,8 @@ h6,
 
 body #navbar.navbar.navbar-light {
   background: var(--site-navbar-bg) !important;
-  border-bottom-color: transparent;
-  box-shadow: 0 0.25rem 1.1rem rgba(23, 50, 77, 0.2);
+  border-bottom-color: var(--global-divider-color);
+  box-shadow: 0 0.2rem 0.8rem rgba(54, 81, 88, 0.08);
   opacity: 1;
 }
 
@@ -189,9 +258,9 @@ body .cv .card-text {
 body .cv .card {
   background: var(--global-card-bg-color) !important;
   border: 1px solid var(--global-divider-color) !important;
-  border-left: 4px solid var(--global-theme-color) !important;
+  border-left: 3px solid var(--global-theme-color) !important;
   border-radius: 0.75rem;
-  box-shadow: 0 0.4rem 1.25rem rgba(23, 50, 77, 0.1);
+  box-shadow: 0 0.4rem 1.25rem rgba(54, 81, 88, 0.06);
 }
 
 body .cv .card .card-title {
@@ -208,6 +277,10 @@ footer.fixed-bottom .container,
 footer.fixed-bottom .container span,
 footer.fixed-bottom .container strong {
   color: var(--global-footer-text-color);
+}
+
+footer.fixed-bottom {
+  border-top: 1px solid var(--global-divider-color);
 }
 
 body #navbar.navbar.navbar-light .language-switch {
@@ -233,10 +306,10 @@ body #navbar.navbar.navbar-light .language-switch__link {
 
 body #navbar.navbar.navbar-light .language-switch__link:hover,
 body #navbar.navbar.navbar-light .language-switch__link:focus-visible {
-  color: var(--site-navbar-bg) !important;
+  color: var(--global-hover-color) !important;
   text-decoration: none;
-  background: var(--site-navbar-active);
-  border-color: var(--site-navbar-active);
+  background: color-mix(in srgb, var(--global-theme-color) 12%, var(--global-card-bg-color));
+  border-color: color-mix(in srgb, var(--global-theme-color) 42%, var(--global-divider-color));
 }
 
 .language-page-note {
@@ -266,11 +339,9 @@ body #navbar.navbar.navbar-light .language-switch__link:focus-visible {
   margin-bottom: 0.4rem;
 }
 
-code,
-kbd,
-pre,
-samp {
-  font-family: var(--site-font-mono);
+html body :where(code, kbd, pre, samp),
+html body :where(code, kbd, pre, samp) * {
+  font-family: var(--site-font-mono) !important;
 }
 
 .publications .preview img {
@@ -294,7 +365,7 @@ samp {
   background: var(--global-card-bg-color);
   border: 1px solid var(--global-divider-color);
   border-radius: 0.85rem;
-  box-shadow: 0 0.4rem 1.2rem rgba(21, 43, 57, 0.08);
+  box-shadow: 0 0.4rem 1.2rem rgba(54, 81, 88, 0.06);
 }
 
 .project-media-card img,
@@ -332,11 +403,11 @@ samp {
   overflow: hidden;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--global-theme-color) 9%, var(--global-card-bg-color)),
+    color-mix(in srgb, var(--global-theme-color) 6%, var(--global-card-bg-color)),
     var(--global-card-bg-color)
   );
   border: 1px solid var(--global-divider-color);
-  border-left: 4px solid var(--global-theme-color);
+  border-left: 3px solid var(--global-theme-color);
   border-radius: 0.9rem;
 }
 
@@ -452,7 +523,7 @@ samp {
   background: var(--global-card-bg-color);
   border: 1px solid var(--global-divider-color);
   border-radius: 0.85rem;
-  box-shadow: 0 0.35rem 1.1rem rgba(23, 50, 77, 0.08);
+  box-shadow: 0 0.35rem 1.1rem rgba(54, 81, 88, 0.06);
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -461,7 +532,7 @@ samp {
 
 .research-card-link:hover .research-card {
   border-color: color-mix(in srgb, var(--global-theme-color) 45%, var(--global-divider-color));
-  box-shadow: 0 0.75rem 1.8rem rgba(23, 50, 77, 0.14);
+  box-shadow: 0 0.75rem 1.8rem rgba(54, 81, 88, 0.1);
   transform: translateY(-4px);
 }
 
@@ -501,11 +572,11 @@ samp {
   justify-content: space-between;
   padding: 1.1rem;
   overflow: hidden;
-  color: var(--site-navbar-text);
+  color: var(--site-placeholder-text);
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--global-theme-color) 78%, var(--site-navbar-bg)),
-    var(--site-navbar-bg)
+    var(--site-placeholder-bg),
+    color-mix(in srgb, var(--site-placeholder-bg) 68%, var(--global-card-bg-color))
   );
 }
 
@@ -516,11 +587,11 @@ samp {
   width: 10rem;
   height: 10rem;
   content: "";
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  border: 1px solid color-mix(in srgb, var(--site-placeholder-text) 18%, transparent);
   border-radius: 50%;
   box-shadow:
-    0 0 0 1.8rem rgba(255, 255, 255, 0.04),
-    0 0 0 3.6rem rgba(255, 255, 255, 0.03);
+    0 0 0 1.8rem color-mix(in srgb, var(--site-placeholder-text) 5%, transparent),
+    0 0 0 3.6rem color-mix(in srgb, var(--site-placeholder-text) 3%, transparent);
 }
 
 .research-card__placeholder-label {

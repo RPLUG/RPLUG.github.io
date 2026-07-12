@@ -83,17 +83,18 @@ module RplugI18n
     output.sub!("</head>", "#{tags}</head>")
   end
 
-  def rewrite_nav_link(output, site, entry)
+  def rewrite_nav_link(output, site, entry, chinese)
     english_href = with_baseurl(site, entry["en_path"])
-    chinese_href = with_baseurl(site, entry["zh_path"])
-    pattern = %r{(<a\s+class="nav-link"\s+href="#{Regexp.escape(english_href)}">)(.*?)(</a>)}m
+    target_href = with_baseurl(site, chinese ? entry["zh_path"] : entry["en_path"])
+    target_title = chinese ? entry["zh_title"] : entry["en_title"]
+    pattern = %r{(<a\b(?=[^>]*\bclass="[^"]*\bnav-link\b[^"]*")(?=[^>]*\bhref="#{Regexp.escape(english_href)}")[^>]*>)(.*?)(</a>)}m
 
     output.gsub!(pattern) do
       match = Regexp.last_match
       opening, body, closing = match.captures
-      opening = opening.sub(%r{href="[^"]+"}, %(href="#{chinese_href}"))
+      opening = opening.sub(%r{href="[^"]+"}, %(href="#{CGI.escapeHTML(target_href)}"))
       current = body[%r{<span class="sr-only">.*?</span>}m].to_s
-      "#{opening}#{CGI.escapeHTML(entry["zh_title"].to_s)}#{current}#{closing}"
+      "#{opening}#{CGI.escapeHTML(target_title.to_s)}#{current}#{closing}"
     end
   end
 
@@ -102,19 +103,19 @@ module RplugI18n
     output.sub!(pattern) { %(<li class="nav-item active">#{Regexp.last_match(1)}) }
   end
 
-  def rewrite_chinese_navigation(output, site, data, path)
-    chinese_home = with_baseurl(site, "/zh/")
+  def rewrite_navigation(output, site, data, path, chinese)
+    home = with_baseurl(site, chinese ? "/zh/" : "/")
     output.sub!(
       %r{(<a class="navbar-brand title font-weight-lighter" href=")[^"]*(">)},
-      "\\1#{chinese_home}\\2"
+      "\\1#{home}\\2"
     )
 
-    Array(data["nav"]).each { |entry| rewrite_nav_link(output, site, entry) }
+    Array(data["nav"]).each { |entry| rewrite_nav_link(output, site, entry, chinese) }
 
-    active_href = if path == "/zh/"
-                    chinese_home
-                  elsif path.start_with?("/zh/projects/")
-                    with_baseurl(site, "/zh/research/")
+    active_href = if path == (chinese ? "/zh/" : "/")
+                    home
+                  elsif path.start_with?(chinese ? "/zh/projects/" : "/projects/")
+                    with_baseurl(site, chinese ? "/zh/research/" : "/research/")
                   else
                     with_baseurl(site, path)
                   end
@@ -142,8 +143,8 @@ module RplugI18n
       if chinese
         output.sub!(%r{<meta property="og:locale" content="[^"]*">}, '<meta property="og:locale" content="zh_CN">')
         output.sub!('placeholder="Type to filter"', 'placeholder="输入关键词筛选"')
-        rewrite_chinese_navigation(output, site, data, path)
       end
+      rewrite_navigation(output, site, data, path, chinese)
       insert_language_switch(output, language_switch(site, pair, chinese))
       inject_hreflang(output, site, pair)
       document.output = output
