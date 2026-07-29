@@ -111,8 +111,8 @@ lang: zh-CN
 
 <figure class="project-media-card project-media-wide">
   <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/large-scale-first-frame.jpg' | relative_url }}">
-    <source src="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}" type="video/mp4">
-    您的浏览器不支持嵌入式视频。<a href="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}">打开 MP4 文件</a>。
+    <source src="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}" type="video/mp4">
+    您的浏览器不支持嵌入式视频。<a href="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}">打开 MP4 文件</a>。
   </video>
   <figcaption>大规模多 GPU 多面体颗粒模拟</figcaption>
 </figure>

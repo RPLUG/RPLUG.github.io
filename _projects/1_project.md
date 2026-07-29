@@ -108,8 +108,8 @@ The following original animations show representative packing systems and a larg
 
 <figure class="project-media-card project-media-wide">
   <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/large-scale-first-frame.jpg' | relative_url }}">
-    <source src="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}" type="video/mp4">
-    Your browser does not support embedded video. <a href="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}">Open the MP4 file</a>.
+    <source src="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support embedded video. <a href="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}">Open the MP4 file</a>.
   </video>
   <figcaption>Large-scale multi-GPU polyhedral-particle simulation</figcaption>
 </figure>
