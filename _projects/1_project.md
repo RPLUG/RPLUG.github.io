@@ -17,7 +17,7 @@ This project develops GPU-native discrete element method (DEM) solvers for geome
 
 **Role: Sole developer.** I independently designed and implemented the solver from the ground up, including contact geometry, CUDA kernels, MPI communication, particle management, memory management, scientific-data output, and supporting workflow tools.
 
-Development began in late 2022 and continues today. The broader research-software codebase contains approximately 80,000-130,000 lines across the DEM solver and auxiliary post-processing, particle-identification, and particle-tracking tools. It is designed for batch-oriented Linux and HPC workflows rather than a conventional desktop interface.
+Development began in late 2022 and continues today. The broader research-software codebase contains approximately 80,000-130,000 lines across the DEM solver and auxiliary post-processing, particle-identification, and particle-tracking tools. It supports both batch-oriented Linux/HPC workflows and a browser-based PolyDEM Workstation.
 
 ## Scale and Performance
 
@@ -60,7 +60,7 @@ Representative applications include million-particle silo flow, catalyst fixed b
 A custom **Claude Code Skill** connected to **DeepSeek Flash** translates user intent into DEM parameter files, launches cases, reads runtime logs, diagnoses and corrects configuration-related failures, and guides users through ParaView-based result inspection.
 
 <figure class="project-media-card project-media-wide">
-  <video controls preload="metadata" playsinline poster="{{ '/assets/img/publication_preview/convex_multigpu_dem.png' | relative_url }}">
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/claude-dem-first-frame.jpg' | relative_url }}">
     <source src="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}" type="video/mp4">
     Your browser does not support embedded video. <a href="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}">Open the MP4 file</a>.
   </video>
@@ -69,7 +69,15 @@ A custom **Claude Code Skill** connected to **DeepSeek Flash** translates user i
 
 ## Scientific Workflow
 
-The solver writes VTK/VTU data and time-series collection files for ParaView. This batch-oriented workflow supports large simulation campaigns without requiring a dedicated graphical user interface.
+The solver writes VTK/VTU data and time-series collection files for ParaView. The PolyDEM Workstation complements the batch workflow with browser-based case-file editing, solver execution, monitoring, result management, visualization, and access to the PolyDEM Agent.
+
+<figure class="project-media-card project-media-wide">
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/polydem-workstation-first-frame.jpg' | relative_url }}">
+    <source src="{{ '/assets/video/polyhedral-dem/PolyDEMWorkStation.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support embedded video. <a href="{{ '/assets/video/polyhedral-dem/PolyDEMWorkStation.mp4' | relative_url }}">Open the MP4 file</a>.
+  </video>
+  <figcaption>PolyDEM Workstation: case management, solver execution, monitoring, visualization, and AI-assisted operation</figcaption>
+</figure>
 
 ## Publications and Intellectual Property
 
@@ -99,9 +107,9 @@ The following original animations show representative packing systems and a larg
 </div>
 
 <figure class="project-media-card project-media-wide">
-  <video controls preload="metadata" playsinline poster="{{ '/assets/img/publication_preview/convex_multigpu_dem.png' | relative_url }}">
-    <source src="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}" type="video/mp4">
-    Your browser does not support embedded video. <a href="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}">Open the MP4 file</a>.
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/large-scale-first-frame.jpg' | relative_url }}">
+    <source src="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support embedded video. <a href="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}">Open the MP4 file</a>.
   </video>
   <figcaption>Large-scale multi-GPU polyhedral-particle simulation</figcaption>
 </figure>

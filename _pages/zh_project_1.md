@@ -20,7 +20,7 @@ lang: zh-CN
 
 **个人职责：独立开发者。** 该求解器由我从零独立设计和实现，涵盖接触几何、全部 CUDA 内核、MPI 通信、颗粒管理、内存管理、科学数据输出及配套工作流工具。
 
-项目自 2022 年底持续开发至今。整个科研软件代码库约 8 万至 13 万行，包含 DEM 求解器以及后处理、颗粒识别和颗粒追踪等辅助工具。软件主要面向 Linux 批处理和 HPC 工作流，而非传统桌面图形界面。
+项目自 2022 年底持续开发至今。整个科研软件代码库约 8 万至 13 万行，包含 DEM 求解器以及后处理、颗粒识别和颗粒追踪等辅助工具。软件同时支持 Linux/HPC 批处理工作流和基于浏览器的 PolyDEM Workstation。
 
 ## 规模与性能
 
@@ -63,7 +63,7 @@ lang: zh-CN
 我开发的自定义 **Claude Code Skill** 接入 **DeepSeek Flash**，可将用户需求转换为 DEM 参数文件，自动启动算例、读取运行日志、诊断并修正配置相关错误，最后辅助用户通过 ParaView 查看和分析结果。
 
 <figure class="project-media-card project-media-wide">
-  <video controls preload="metadata" playsinline poster="{{ '/assets/img/publication_preview/convex_multigpu_dem.png' | relative_url }}">
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/claude-dem-first-frame.jpg' | relative_url }}">
     <source src="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}" type="video/mp4">
     您的浏览器不支持嵌入式视频。<a href="{{ '/assets/video/polyhedral-dem/Claude+DEM.mp4' | relative_url }}">打开 MP4 文件</a>。
   </video>
@@ -72,7 +72,15 @@ lang: zh-CN
 
 ## 科研软件工作流
 
-求解器可输出供 ParaView 使用的 VTK/VTU 数据及时间序列集合文件，适用于无需专用图形界面的大规模批处理计算和结果分析。
+求解器可输出供 ParaView 使用的 VTK/VTU 数据及时间序列集合文件。PolyDEM Workstation 在批处理工作流之外提供基于浏览器的算例文件编辑、求解器执行、运行监控、结果管理、可视化以及 PolyDEM Agent 入口。
+
+<figure class="project-media-card project-media-wide">
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/polydem-workstation-first-frame.jpg' | relative_url }}">
+    <source src="{{ '/assets/video/polyhedral-dem/PolyDEMWorkStation.mp4' | relative_url }}" type="video/mp4">
+    您的浏览器不支持嵌入式视频。<a href="{{ '/assets/video/polyhedral-dem/PolyDEMWorkStation.mp4' | relative_url }}">打开 MP4 文件</a>。
+  </video>
+  <figcaption>PolyDEM Workstation：算例管理、求解器执行、运行监控、可视化与 AI 辅助操作</figcaption>
+</figure>
 
 ## 论文与知识产权
 
@@ -102,9 +110,9 @@ lang: zh-CN
 </div>
 
 <figure class="project-media-card project-media-wide">
-  <video controls preload="metadata" playsinline poster="{{ '/assets/img/publication_preview/convex_multigpu_dem.png' | relative_url }}">
-    <source src="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}" type="video/mp4">
-    您的浏览器不支持嵌入式视频。<a href="{{ '/assets/video/polyhedral-dem/Large-scale.mp4' | relative_url }}">打开 MP4 文件</a>。
+  <video controls preload="metadata" playsinline poster="{{ '/assets/img/video_posters/large-scale-first-frame.jpg' | relative_url }}">
+    <source src="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}" type="video/mp4">
+    您的浏览器不支持嵌入式视频。<a href="{{ '/assets/video/polyhedral-dem/Large-Scale.mp4' | relative_url }}">打开 MP4 文件</a>。
   </video>
   <figcaption>大规模多 GPU 多面体颗粒模拟</figcaption>
 </figure>
