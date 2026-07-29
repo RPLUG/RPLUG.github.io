@@ -96,15 +96,15 @@ lang: zh-CN
 
 <div class="project-media-grid">
   <figure class="project-media-card">
-    <img src="{{ '/assets/video/polyhedral-dem/u-packingxx3.gif' | relative_url }}" alt="U 形颗粒堆积模拟" loading="lazy">
+    <img src="{{ '/assets/video/polyhedral-dem/u-packingxx3-vertical.gif' | relative_url }}" alt="U 形颗粒堆积模拟" loading="lazy">
     <figcaption>U 形颗粒堆积</figcaption>
   </figure>
   <figure class="project-media-card">
-    <img src="{{ '/assets/video/polyhedral-dem/banana-packingxx3.gif' | relative_url }}" alt="香蕉形颗粒堆积模拟" loading="lazy">
+    <img src="{{ '/assets/video/polyhedral-dem/banana-packingxx3-vertical.gif' | relative_url }}" alt="香蕉形颗粒堆积模拟" loading="lazy">
     <figcaption>香蕉形颗粒堆积</figcaption>
   </figure>
   <figure class="project-media-card">
-    <img src="{{ '/assets/video/polyhedral-dem/apple-packingxx3.gif' | relative_url }}" alt="苹果形颗粒堆积模拟" loading="lazy">
+    <img src="{{ '/assets/video/polyhedral-dem/apple-packingxx3-vertical.gif' | relative_url }}" alt="苹果形颗粒堆积模拟" loading="lazy">
     <figcaption>苹果形颗粒堆积</figcaption>
   </figure>
 </div>

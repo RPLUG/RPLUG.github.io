@@ -93,15 +93,15 @@ The following original animations show representative packing systems and a larg
 
 <div class="project-media-grid">
   <figure class="project-media-card">
-    <img src="{{ '/assets/video/polyhedral-dem/u-packingxx3.gif' | relative_url }}" alt="Packing simulation of U-shaped particles" loading="lazy">
+    <img src="{{ '/assets/video/polyhedral-dem/u-packingxx3-vertical.gif' | relative_url }}" alt="Packing simulation of U-shaped particles" loading="lazy">
     <figcaption>U-shaped particle packing</figcaption>
   </figure>
   <figure class="project-media-card">
-    <img src="{{ '/assets/video/polyhedral-dem/banana-packingxx3.gif' | relative_url }}" alt="Packing simulation of banana-shaped particles" loading="lazy">
+    <img src="{{ '/assets/video/polyhedral-dem/banana-packingxx3-vertical.gif' | relative_url }}" alt="Packing simulation of banana-shaped particles" loading="lazy">
     <figcaption>Banana-shaped particle packing</figcaption>
   </figure>
   <figure class="project-media-card">
-    <img src="{{ '/assets/video/polyhedral-dem/apple-packingxx3.gif' | relative_url }}" alt="Packing simulation of apple-shaped particles" loading="lazy">
+    <img src="{{ '/assets/video/polyhedral-dem/apple-packingxx3-vertical.gif' | relative_url }}" alt="Packing simulation of apple-shaped particles" loading="lazy">
     <figcaption>Apple-shaped particle packing</figcaption>
   </figure>
 </div>
