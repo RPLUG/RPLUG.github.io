@@ -20,9 +20,37 @@ lang: zh-CN
 
 该空间分区策略在颗粒接触作用重要的底部密相区采用 CG-DPM，在稀相上部区域采用计算代价更低的 MP-PIC，并通过过渡区实现两种描述之间的动量平滑传递。
 
-- 在较高表观气速下，耦合方法相对 CG-DPM 将总体计算时间降低约 **35%**。
-- MP-PIC 局部区域的耗时约为相应 CG-DPM 区域的 **1/5**。
-- 模拟得到的鼓泡频率为 **1.8 Hz**，与实验一致；CG-DPM 和双流体模型对应结果分别为 1.6 Hz 和 2.2 Hz。
+在高 1.0 m 的验证床层中，下部 0.4 m 采用 CG-DPM，中间 0.1 m 为过渡区，上部 0.5 m 采用 MP-PIC；过渡权重随高度线性变化。测试表明，小于 0.06 m 的过渡区会使具有重叠的 MP-PIC 颗粒进入接触解析区域时产生过大接触力，因此最终采用 0.1 m 以保证平滑过渡。
+
+### 鼓泡床数据验证
+
+<figure class="project-media-card project-media-portrait">
+  <img loading="lazy" src="{{ '/assets/img/projects/particle-fluid-multiscale/mppic-bubbling-validation.png' | relative_url }}" alt="CG-DPM 与耦合方法预测的鼓泡行为及其与实验数据的对比" />
+  <figcaption>CG-DPM 与耦合方法预测的鼓泡行为及其与公开实验数据的对比。来源：<a href="https://hgxb.cip.com.cn/CN/10.11949/0438-1157.20250599">Zhang 等，<em>化工学报</em> 76（2025）</a>，图 4。</figcaption>
+</figure>
+
+耦合计算能够再现典型鼓泡形态，并在床层膨胀、压降以及轴向和径向空隙率方面保持与 CG-DPM 接近。在床层高度 0.2 m 处，耦合方法准确给出了实验鼓泡频率。
+
+<div class="project-stat-grid" role="list" aria-label="CG-DPM 与 MP-PIC 验证及性能指标">
+  <div class="project-stat" role="listitem"><strong>1.8 Hz</strong><span>鼓泡频率</span><small>耦合方法与实验一致；CG-DPM 为 1.6 Hz</small></div>
+  <div class="project-stat" role="listitem"><strong>65%</strong><span>总体计算耗时</span><small><em>u</em><sub>g</sub> = 0.51 m/s 时相对 CG-DPM</small></div>
+  <div class="project-stat" role="listitem"><strong>1/5</strong><span>局部计算耗时</span><small><em>u</em><sub>g</sub> &ge; 0.38 m/s 时 MP-PIC 区域相对 CG-DPM</small></div>
+</div>
+
+### 计算性能
+
+<div class="project-media-grid">
+  <figure class="project-media-card">
+    <img loading="lazy" src="{{ '/assets/img/projects/particle-fluid-multiscale/mppic-total-wall-time.png' | relative_url }}" alt="耦合方法相对 CG-DPM 的整体计算耗时比" />
+    <figcaption>耦合方法相对 CG-DPM 的整体计算耗时比（图 10）。</figcaption>
+  </figure>
+  <figure class="project-media-card">
+    <img loading="lazy" src="{{ '/assets/img/projects/particle-fluid-multiscale/mppic-local-wall-time.png' | relative_url }}" alt="MP-PIC 局部区域相对 CG-DPM 的计算耗时比" />
+    <figcaption>MP-PIC 局部区域相对 CG-DPM 的计算耗时比（图 11）。</figcaption>
+  </figure>
+</div>
+
+<div class="project-scope-note"><strong>基准范围：</strong>颗粒计算使用单张 NVIDIA K80，OpenFOAM 流体计算运行于 Intel Xeon E5-2680 v4 CPU。高气速下耦合方法会略微高估床层膨胀，可能与 MP-PIC 对碰撞耗散的简化有关；计算域分界和过渡区宽度的定量选择仍需进一步研究。</div>
 
 ## 颗粒尺度—粗粒化 CFD-DEM 生物质热解
 

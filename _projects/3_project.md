@@ -17,9 +17,37 @@ This research focuses on scalable numerical methods for particle-fluid systems. 
 
 A spatially decomposed coupling strategy uses CG-DPM in the dense lower region, where explicit contact dynamics are important, and MP-PIC in the dilute upper region, where parcel-based modelling reduces cost. A transition region blends momentum transfer between the two descriptions.
 
-- At high superficial gas velocities, the coupled method reduced total wall time by approximately **35%** relative to CG-DPM.
-- The local MP-PIC region required approximately **one fifth** of the corresponding CG-DPM time.
-- The predicted bubbling frequency was **1.8 Hz**, matching the experiment; the corresponding CG-DPM and two-fluid-model results were 1.6 and 2.2 Hz.
+For the 1.0 m-tall validation bed, the lower 0.4 m uses CG-DPM, the middle 0.1 m provides the transition, and the upper 0.5 m uses MP-PIC. The transition weight varies linearly with height. A 0.1 m transition was retained because tests below 0.06 m produced excessive contact forces as overlapping MP-PIC parcels entered the contact-resolved region.
+
+### Validation Against Bubbling-Bed Data
+
+<figure class="project-media-card project-media-portrait">
+  <img loading="lazy" src="{{ '/assets/img/projects/particle-fluid-multiscale/mppic-bubbling-validation.png' | relative_url }}" alt="Bubbling behaviour predicted by CG-DPM and the coupled method compared with experimental data" />
+  <figcaption>Bubbling behaviour predicted by CG-DPM and the coupled method compared with published experimental data. Source: <a href="https://hgxb.cip.com.cn/CN/10.11949/0438-1157.20250599">Zhang et al., <em>CIESC Journal</em> 76 (2025)</a>, Fig. 4.</figcaption>
+</figure>
+
+The coupled calculation reproduces the characteristic bubbling patterns and remains close to CG-DPM for bed expansion, pressure drop, and axial and radial voidage. At a bed height of 0.2 m, it predicts the experimental bubbling frequency exactly.
+
+<div class="project-stat-grid" role="list" aria-label="CG-DPM and MP-PIC validation and performance highlights">
+  <div class="project-stat" role="listitem"><strong>1.8 Hz</strong><span>Bubbling frequency</span><small>Coupled method and experiment; CG-DPM gives 1.6 Hz</small></div>
+  <div class="project-stat" role="listitem"><strong>65%</strong><span>Total wall time</span><small>Relative to CG-DPM at <em>u</em><sub>g</sub> = 0.51 m/s</small></div>
+  <div class="project-stat" role="listitem"><strong>1/5</strong><span>Local wall time</span><small>MP-PIC region relative to CG-DPM for <em>u</em><sub>g</sub> &ge; 0.38 m/s</small></div>
+</div>
+
+### Computational Performance
+
+<div class="project-media-grid">
+  <figure class="project-media-card">
+    <img loading="lazy" src="{{ '/assets/img/projects/particle-fluid-multiscale/mppic-total-wall-time.png' | relative_url }}" alt="Overall wall-time ratio of the coupled method to CG-DPM" />
+    <figcaption>Overall wall-time ratio of the coupled method to CG-DPM (Fig. 10).</figcaption>
+  </figure>
+  <figure class="project-media-card">
+    <img loading="lazy" src="{{ '/assets/img/projects/particle-fluid-multiscale/mppic-local-wall-time.png' | relative_url }}" alt="Local wall-time ratio in the MP-PIC region relative to CG-DPM" />
+    <figcaption>Local wall-time ratio in the MP-PIC region relative to CG-DPM (Fig. 11).</figcaption>
+  </figure>
+</div>
+
+<div class="project-scope-note"><strong>Benchmark scope:</strong> The particle calculations used one NVIDIA K80, while OpenFOAM ran on an Intel Xeon E5-2680 v4 CPU. At high gas velocity, the coupled method slightly overpredicts bed expansion, likely because MP-PIC simplifies collision dissipation; quantitative selection of the domain split and transition width remains an open problem.</div>
 
 ## Particle-Scale and Coarse-Grained Biomass Pyrolysis
 
