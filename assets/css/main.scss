@@ -395,6 +395,200 @@ html body :where(code, kbd, pre, samp) * {
   object-fit: contain;
 }
 
+// Project 2: accessible, responsive architecture and evidence summaries.
+.ai-project > h2 {
+  margin-top: 2.6rem;
+}
+
+.ai-project > .project-module-label + h2 {
+  margin-top: 0.55rem;
+}
+
+.project-module-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  margin-top: 3.6rem;
+  color: var(--global-theme-color);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--global-theme-color) 9%, var(--global-card-bg-color));
+  border: 1px solid color-mix(in srgb, var(--global-theme-color) 32%, var(--global-divider-color));
+  border-radius: 999px;
+}
+
+.project-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.75rem, 1fr));
+  gap: 0.85rem;
+  margin: 1.35rem 0 1.65rem;
+}
+
+.project-stat {
+  position: relative;
+  display: flex;
+  min-height: 8.9rem;
+  padding: 1rem 1rem 0.9rem;
+  overflow: hidden;
+  flex-direction: column;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--global-theme-color) 6%, var(--global-card-bg-color)),
+    var(--global-card-bg-color)
+  );
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.8rem;
+  box-shadow: 0 0.35rem 1rem rgba(54, 81, 88, 0.05);
+}
+
+.project-stat::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.2rem;
+  content: "";
+  background: color-mix(in srgb, var(--global-theme-color) 72%, #d9ece8);
+}
+
+.project-stat strong {
+  color: var(--global-theme-color);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05;
+}
+
+.project-stat span {
+  margin-top: 0.48rem;
+  color: var(--global-text-color);
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.project-stat small {
+  margin-top: 0.45rem;
+  color: var(--global-text-color-light);
+  font-size: 0.82rem;
+  line-height: 1.38;
+}
+
+.model-flow {
+  display: grid;
+  gap: 1.55rem;
+  margin: 1.2rem 0 1.65rem;
+}
+
+.model-flow--five {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.model-flow--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.model-flow__node {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 10.2rem;
+  padding: 0.9rem 0.85rem;
+  flex-direction: column;
+  background: linear-gradient(
+    150deg,
+    color-mix(in srgb, var(--global-theme-color) 4%, var(--global-card-bg-color)),
+    var(--global-card-bg-color)
+  );
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.78rem;
+  box-shadow: 0 0.3rem 0.9rem rgba(54, 81, 88, 0.045);
+}
+
+.model-flow__node:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -1.28rem;
+  z-index: 2;
+  color: var(--global-theme-color);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  content: "→";
+  transform: translateY(-50%);
+}
+
+.model-flow__node--output {
+  background: color-mix(in srgb, var(--global-theme-color) 8%, var(--global-card-bg-color));
+  border-color: color-mix(in srgb, var(--global-theme-color) 38%, var(--global-divider-color));
+}
+
+.model-flow__step {
+  align-self: flex-start;
+  padding: 0.25rem 0.48rem;
+  color: var(--global-theme-color);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--global-theme-color) 9%, var(--global-card-bg-color));
+  border-radius: 999px;
+}
+
+.model-flow__node strong {
+  margin-top: 0.75rem;
+  color: var(--global-text-color);
+  font-size: 0.99rem;
+  line-height: 1.25;
+}
+
+.model-flow__node small {
+  margin-top: 0.55rem;
+  color: var(--global-text-color-light);
+  font-size: 0.79rem;
+  line-height: 1.4;
+}
+
+.model-flow__chips {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-top: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.model-flow__chips span {
+  padding: 0.24rem 0.4rem;
+  margin: 0;
+  color: var(--global-text-color);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.15;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.35rem;
+}
+
+.project-feedback-band,
+.project-scope-note {
+  padding: 0.85rem 1rem;
+  margin: 1rem 0 1.5rem;
+  color: var(--global-text-color-light);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  background: color-mix(in srgb, var(--global-theme-color) 6%, var(--global-card-bg-color));
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 0.45rem;
+}
+
+.project-feedback-band strong,
+.project-scope-note strong {
+  color: var(--global-text-color);
+}
+
 // Research overview: compact cards with a consistent visual rhythm.
 .post:has(.research-overview) .post-header {
   position: relative;
@@ -743,5 +937,43 @@ html body :where(code, kbd, pre, samp) * {
 
   .project-media-card {
     padding: 0.55rem;
+  }
+
+  .ai-project > h2 {
+    margin-top: 2.15rem;
+  }
+
+  .project-module-label {
+    margin-top: 2.8rem;
+  }
+
+  .project-stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (max-width: 52rem) {
+  .model-flow--five,
+  .model-flow--four {
+    grid-template-columns: 1fr;
+  }
+
+  .model-flow__node {
+    min-height: 0;
+  }
+
+  .model-flow__node:not(:last-child)::after {
+    top: auto;
+    right: 50%;
+    bottom: -1.25rem;
+    content: "↓";
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 28rem) {
+  .project-stat-grid {
+    grid-template-columns: 1fr;
   }
 }

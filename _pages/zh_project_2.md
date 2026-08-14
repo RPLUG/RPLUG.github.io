@@ -8,50 +8,199 @@ nav: false
 lang: zh-CN
 ---
 
-<div lang="zh-CN" markdown="1">
+<div class="ai-project" lang="zh-CN" markdown="1">
 
 ## 项目概述
 
-本研究将高速成像、DEM 合成数据、计算机视觉与优化算法相结合，用于测量颗粒运动并辨识有效 DEM 接触参数。两部分工作的共同目标是在模拟与实验之间建立可复现的闭环：利用模拟辅助实验测量，再利用实验数据改进模拟。
+本项目整合了两项由我主导或共同主导的研究：一项建立从模拟数据到真实实验的非球形颗粒追踪方法，另一项构建有效 DEM 接触参数的闭环辨识框架。两者共同将高速摄影转化为颗粒尺度测量，并利用这些测量结果持续改进模拟。
 
 {% include figure.liquid loading="eager" path="assets/img/publication_preview/particle_tracking.png" title="深度学习辅助的非球形颗粒追踪流程" class="img-fluid rounded z-depth-1" %}
 
-## 个人职责
+<div class="project-stat-grid" role="list" aria-label="项目概览">
+  <div class="project-stat" role="listitem"><strong>1,082</strong><span>张合成图像</span><small>自动生成逐像素颗粒掩膜</small></div>
+  <div class="project-stat" role="listitem"><strong>10</strong><span>帧修正实验图像</span><small>用于真实图像域微调</small></div>
+  <div class="project-stat" role="listitem"><strong>10,000</strong><span>个 DEM 训练算例</span><small>用于 ViT 逆向参数辨识</small></div>
+  <div class="project-stat" role="listitem"><strong>336</strong><span>组转鼓实验</span><small>168 组增强，168 组独立验证</small></div>
+</div>
 
-在 DEM 参数辨识研究中，我负责完整流程，包括模拟数据集生成、实验数据处理、模型开发、ViT 推理、局部网格搜索、CMA-ES 优化、结果评估、可视化及软件实现。
+## 个人贡献
 
-## 非球形颗粒追踪
+- **颗粒追踪：**共同第一作者（署名第一）；参与超二次曲面 DEM 数据生成、自动掩膜构建、Mask R-CNN 训练与实验迁移、三帧 PTV、速度场重构、评估和可视化的完整方法链。
+- **参数辨识：**完成端到端计算流程，包括模拟数据集生成、实验数据处理、ViT 开发与推理、局部网格搜索、CMA-ES 优化、结果评估、可视化和软件实现。
 
-- 由 DEM 模拟直接生成合成训练图像和标签，减少对大规模人工标注的依赖。
-- 使用 Mask R-CNN 对实验图像中的立方体和椭球形颗粒进行分割。
-- 跨帧关联颗粒位置，重建瞬时运动轨迹和时均速度场。
-- 在传统图像处理难以稳定工作的高密度场景中，实现模拟—实验融合的定量测量。
+<div class="project-module-label">研究模块 01</div>
 
-## DEM 参数辨识流程
+## 模拟—实验融合的非球形颗粒追踪
 
-参数辨识方法将视觉 Transformer 与基于模拟的优化结合：
+核心思路是使用物理模拟生成的数据替代大规模人工标注。超二次曲面 DEM 提供颗粒几何和运动信息；ParaView 在渲染图像的同时保留精确的逐颗粒标签；最后仅使用少量修正后的实验图像缩小模拟域与相机图像域之间的差异。
 
-1. 采用拉丁超立方采样生成 **10,000 个转鼓 DEM 算例**。
-2. 由 ViT 编码颗粒体积分数场和休止角信息，预测初始参数组合。
-3. 在初值邻域执行局部网格搜索，并通过新的 DEM 模拟评估候选参数。
-4. 如仍需进一步优化，则启动 CMA-ES。
+### Mask R-CNN 网络架构
 
-该流程同时辨识 6 个相互耦合的接触参数：粒—粒及粒—壁恢复系数、滑动摩擦系数和滚动摩擦系数。
+<div class="model-flow model-flow--five" role="group" aria-label="用于颗粒实例分割的 Mask R-CNN 网络架构">
+  <div class="model-flow__node">
+    <span class="model-flow__step">输入</span>
+    <strong>合成或实验图像</strong>
+    <small>高密度非球形颗粒场景</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">主干网络</span>
+    <strong>ResNet-50 + FPN</strong>
+    <small>多尺度特征提取</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">候选区域</span>
+    <strong>区域建议网络 RPN</strong>
+    <small>生成颗粒候选区域</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">特征对齐</span>
+    <strong>RoI Align</strong>
+    <small>获得实例对齐特征</small>
+  </div>
+  <div class="model-flow__node model-flow__node--output">
+    <span class="model-flow__step">任务头</span>
+    <strong>逐颗粒输出</strong>
+    <div class="model-flow__chips"><span>类别</span><span>边界框</span><span>FCN 掩膜</span></div>
+  </div>
+</div>
 
-### 实验数据与结果
+### 从实例掩膜到速度场
 
-- 共使用 **336 组转鼓实验**，其中 168 组用于模型增强，另 168 组用于独立评估。
-- ViT 可在约 **0.5 s** 内给出初始参数组合。
-- 对 168 组实验进行模拟优化后，平均 **R² 从 0.78 提升至 0.947**，平均休止角 RMSE 从 **0.075 降至 0.067**。
-- 在代表性案例中，R² 从 **0.6429 提升至 0.9332**，休止角 RMSE 从 **0.098 降至 0.053**。
-- 注意力主要集中在自由表面和转鼓壁面附近，为模型提取信息的位置提供了物理可解释性。
+<div class="model-flow model-flow--four" role="group" aria-label="颗粒追踪与速度场重构流程">
+  <div class="model-flow__node">
+    <span class="model-flow__step">01</span>
+    <strong>实例掩膜</strong>
+    <small>提取颗粒质心和轮廓</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">02</span>
+    <strong>三帧匹配</strong>
+    <small>在 t-1、t 和 t+1 帧间进行双向关联</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">03</span>
+    <strong>颗粒轨迹</strong>
+    <small>计算瞬时拉格朗日速度</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">04</span>
+    <strong>欧拉速度场</strong>
+    <small>按掩膜覆盖面积进行速度映射</small>
+  </div>
+</div>
 
-当前研究针对固定准二维转鼓中的球形颗粒。辨识结果应理解为能够复现实验响应的有效参数组合，而非唯一可直接测量的材料常数。
+### 数据集与实验迁移
+
+- **1,082 张合成图像**覆盖料仓堆积、稀相随机运动和转鼓流动，每张图像包含 10–200 个颗粒，平均约 80 个；训练集和验证集按 80%/20% 划分。
+- 数据增强随机组合水平/垂直翻转、高斯模糊、亮度、对比度和饱和度变化，以逼近真实相机条件。
+- 实验迁移仅使用 **10 帧人工修正图像**，这些帧来自不同转速和颗粒数量，而不需要完整标注大规模真实图像数据集。
+- Mask R-CNN 采用 ResNet-50/FPN 主干、RPN、RoI Align、分类头、边界框头和 FCN 掩膜头，论文报告的模型规模约为 4,590 万参数。
+
+<div class="project-stat-grid" role="list" aria-label="颗粒追踪结果">
+  <div class="project-stat" role="listitem"><strong>0.899</strong><span>mAP<sub>50:95</sub></span><small>合成验证数据</small></div>
+  <div class="project-stat" role="listitem"><strong>0.926</strong><span>AR<sub>50:95</sub></span><small>合成验证数据</small></div>
+  <div class="project-stat" role="listitem"><strong>误差为 0</strong><span>颗粒数量偏差</span><small>253 个立方体颗粒实验微调后</small></div>
+  <div class="project-stat" role="listitem"><strong>&lt;10 h</strong><span>新形状部署流程</span><small>约 1,000 张图像，包含模拟和训练</small></div>
+</div>
+
+独立合成测试包含 1,550 帧，该序列实现了完整的颗粒关联。实验验证覆盖立方体、椭球及立方体—椭球混合体系；立方体颗粒的时均速度场由连续 10,000 帧重构。当前推理时间约为 200 ms/帧（约 5 FPS），因此定位为离线分析，而非实时追踪。
+
+<div class="project-scope-note"><strong>指标边界：</strong>AP 和 AR 来自合成数据。“误差为 0”仅指特定立方体实验在微调后的颗粒数量偏差，不代表掩膜误差或速度误差为零。</div>
+
+<div class="project-module-label">研究模块 02</div>
+
+## DEM 参数的闭环辨识
+
+该研究首先根据实验颗粒运动快速估计 6 个相互耦合的 DEM 接触参数，再通过新的 DEM 模拟验证并改进初值。经过实验验证的模拟—实验样本被反馈到训练集，使模型逐步适应真实观测。
+
+{% include figure.liquid loading="lazy" path="assets/img/publication_preview/property_parameter_identification.png" title="ViT 引导的 DEM 参数闭环辨识流程" class="img-fluid rounded z-depth-1" %}
+
+### Vision Transformer 网络架构
+
+<div class="model-flow model-flow--five" role="group" aria-label="用于 DEM 参数辨识的 Vision Transformer 网络架构">
+  <div class="model-flow__node">
+    <span class="model-flow__step">输入</span>
+    <strong>PVF、AoR 与工况</strong>
+    <small>时间序列速度场和全局运行条件</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">场编码器</span>
+    <strong>1 &times; 1 卷积</strong>
+    <small>将时间维 T 映射到通道维 C</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">Token 化</span>
+    <strong>p &times; p 场切片</strong>
+    <small>线性投影、位置编码和工况 token</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">编码器</span>
+    <strong>Transformer 模块</strong>
+    <small>多头注意力、MLP、归一化和残差连接</small>
+  </div>
+  <div class="model-flow__node model-flow__node--output">
+    <span class="model-flow__step">回归头</span>
+    <strong>6 个有效参数</strong>
+    <div class="model-flow__chips"><span>恢复系数</span><span>滑动摩擦</span><span>滚动摩擦</span></div>
+  </div>
+</div>
+
+三类输出分别包含粒—粒和粒—壁两个参数。模型采用 Smooth L1 回归目标；论文并不假设辨识得到的参数组合是唯一可能的物理参数集。
+
+### 实验—模拟—优化闭环
+
+<div class="model-flow model-flow--five" role="group" aria-label="DEM 参数闭环辨识流程">
+  <div class="model-flow__node">
+    <span class="model-flow__step">01 测量</span>
+    <strong>高速摄影 + PTV</strong>
+    <small>构建 PVF 和动态休止角</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">02 推理</span>
+    <strong>ViT 初始估计</strong>
+    <small>约 0.5 s 给出 6 个接触参数</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">03 验证</span>
+    <strong>DEM 重放</strong>
+    <small>比较 PVF R² 和休止角 RMSE</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">04 局部优化</span>
+    <strong>参数空间网格搜索</strong>
+    <small>在 ViT 初值附近评估候选组合</small>
+  </div>
+  <div class="model-flow__node">
+    <span class="model-flow__step">05 全局优化</span>
+    <strong>必要时启动 CMA-ES</strong>
+    <small>进一步处理难收敛算例</small>
+  </div>
+</div>
+
+<div class="project-feedback-band"><strong>反馈路径：</strong>将通过实验验证的 PVF、AoR 和优化参数加入增强数据集，继续更新 ViT 模型。</div>
+
+### 数据规模与结果
+
+- 采用拉丁超立方采样生成 **10,000 个转鼓 DEM 算例**，将 PVF 和 AoR 与参数标签配对。
+- **336 组实验**覆盖 0–50 rpm、100–400 个颗粒以及 9 或 10 mm 粒径；其中 168 组用于模型增强，另外 168 组作为独立测试。
+- 对 168 组增强算例进行基于模拟的优化后，平均 **R² 从 0.78 提升至 0.947**，平均休止角 RMSE 从 **0.075 降至 0.067**。
+- 在一个代表性案例中，网格搜索使 R² 从 **0.6429 提升至 0.9332**，休止角 RMSE 从 **0.098 降至 0.053**。
+- 在独立测试集上，模型增强使平均 R² 从 **0.74 提升至 0.82**，而平均休止角 RMSE 由约 **0.068 变为约 0.073**。因此，改进主要体现在 PVF 一致性，并非所有指标都同步改善。
+- 注意力分析表明，ViT 主要关注颗粒自由表面和转鼓侧壁附近区域，这些区域中的剪切、耗散以及颗粒—壁面作用更为明显。
+
+<div class="project-stat-grid" role="list" aria-label="DEM 参数辨识结果">
+  <div class="project-stat" role="listitem"><strong>约 0.5 s</strong><span>ViT 初始推理</span><small>不包含后续模拟优化</small></div>
+  <div class="project-stat" role="listitem"><strong>0.78 → 0.947</strong><span>平均 PVF R²</span><small>168 组增强算例优化后</small></div>
+  <div class="project-stat" role="listitem"><strong>0.075 → 0.067</strong><span>平均 AoR RMSE</span><small>168 组增强算例优化后</small></div>
+  <div class="project-stat" role="listitem"><strong>6</strong><span>个耦合接触参数</span><small>粒—粒和粒—壁参数对</small></div>
+</div>
+
+<div class="project-scope-note"><strong>适用范围：</strong>当前验证对象为固定准二维转鼓中的球形颗粒和准稳态工况。辨识结果是能够复现实验响应的有效参数组合，而不是唯一、可直接测量的材料常数。</div>
 
 ## 代表性论文
 
-- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681)，_Powder Technology_（2026）。
-- [Deep-learning-based property parameters identification for DEM simulations](https://doi.org/10.1016/j.ces.2026.124100)，_Chemical Engineering Science_（2026）。
+- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681)，_Powder Technology_ 468（2026）121681。共同第一作者，署名第一。
+- [Deep-learning-based property parameters identification for DEM simulations](https://doi.org/10.1016/j.ces.2026.124100)，_Chemical Engineering Science_ 332（2026）124100。
 
 </div>
 
