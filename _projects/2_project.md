@@ -11,7 +11,7 @@ category: research
 
 ## Overview
 
-This project connects two studies that I led or co-led: a simulation-to-experiment strategy for tracking non-spherical particles, and a closed-loop framework for identifying effective DEM contact parameters. Together they turn high-speed images into particle-resolved measurements and then use those measurements to improve simulation.
+This project connects two first-author studies: a simulation-to-experiment strategy for tracking non-spherical particles, and a closed-loop framework for identifying effective DEM contact parameters. Together they turn high-speed images into particle-resolved measurements and then use those measurements to improve simulation.
 
 {% include figure.liquid loading="eager" path="assets/img/publication_preview/particle_tracking.png" title="Workflow for deep-learning-assisted non-spherical particle tracking" class="img-fluid rounded z-depth-1" %}
 
@@ -24,7 +24,7 @@ This project connects two studies that I led or co-led: a simulation-to-experime
 
 ## My Contribution
 
-- **Particle tracking:** co-first author (listed first); worked across superquadric DEM data generation, automatic mask construction, Mask R-CNN training and experimental transfer, three-frame PTV, field reconstruction, evaluation, and visualization.
+- **Particle tracking:** first author; worked across superquadric DEM data generation, automatic mask construction, Mask R-CNN training and experimental transfer, three-frame PTV, field reconstruction, evaluation, and visualization.
 - **Parameter identification:** completed the end-to-end computational workflow, including simulation-dataset generation, experimental-data processing, ViT development and inference, local grid search, CMA-ES optimization, evaluation, visualization, and software implementation.
 
 <div class="project-module-label">Research module 01</div>
@@ -35,33 +35,9 @@ The central idea is to replace large-scale manual annotation with physics-based 
 
 ### Mask R-CNN Architecture
 
-<div class="model-flow model-flow--five" role="group" aria-label="Mask R-CNN architecture for particle instance segmentation">
-  <div class="model-flow__node">
-    <span class="model-flow__step">Input</span>
-    <strong>Synthetic or experimental frame</strong>
-    <small>Dense non-spherical particle scenes</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">Backbone</span>
-    <strong>ResNet-50 + FPN</strong>
-    <small>Multi-scale feature extraction</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">Proposals</span>
-    <strong>Region Proposal Network</strong>
-    <small>Candidate particle regions</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">Alignment</span>
-    <strong>RoI Align</strong>
-    <small>Instance-aligned feature maps</small>
-  </div>
-  <div class="model-flow__node model-flow__node--output">
-    <span class="model-flow__step">Task heads</span>
-    <strong>Particle-level outputs</strong>
-    <div class="model-flow__chips"><span>Class</span><span>Box</span><span>FCN mask</span></div>
-  </div>
-</div>
+{% include figure.liquid loading="lazy" path="assets/img/projects/ai-particle-measurement/mask-rcnn-architecture-original.png" title="Original Mask R-CNN architecture from the published study" class="img-fluid rounded z-depth-1" %}
+
+Synthetic or experimental frames pass through a ResNet-50/FPN feature backbone, the Region Proposal Network, and RoI Align. Separate heads then return particle class, bounding box, and pixel-level instance mask.
 
 ### From Masks to Velocity Fields
 
@@ -116,35 +92,9 @@ This study turns experimental particle motion into a fast initial estimate of si
 
 ### Vision Transformer Architecture
 
-<div class="model-flow model-flow--five" role="group" aria-label="Vision Transformer architecture for DEM parameter identification">
-  <div class="model-flow__node">
-    <span class="model-flow__step">Inputs</span>
-    <strong>PVF, AoR, and conditions</strong>
-    <small>Time-resolved field and operating context</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">Field encoder</span>
-    <strong>1 &times; 1 convolution</strong>
-    <small>Maps temporal dimension T to channels C</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">Tokenization</span>
-    <strong>p &times; p field patches</strong>
-    <small>Linear projection, position encoding, and condition token</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">Encoder</span>
-    <strong>Transformer blocks</strong>
-    <small>Multi-head attention, MLP, normalization, and residual paths</small>
-  </div>
-  <div class="model-flow__node model-flow__node--output">
-    <span class="model-flow__step">Regression head</span>
-    <strong>Six effective parameters</strong>
-    <div class="model-flow__chips"><span>Restitution</span><span>Sliding</span><span>Rolling</span></div>
-  </div>
-</div>
+{% include figure.liquid loading="lazy" path="assets/img/projects/ai-particle-measurement/vit-parameter-architecture-original.png" title="Original Vision Transformer architecture from the published study" class="img-fluid rounded z-depth-1" %}
 
-The three output families each contain particle-particle and particle-wall values. Training uses a Smooth L1 regression objective; the paper does not assume that the inferred set is the only physically possible parameter combination.
+The time-resolved PVF is encoded through a 1 &times; 1 convolution and non-overlapping field patches. Patch embeddings, positional information, and operating-condition context enter the Transformer encoder; the MLP head then returns particle-particle and particle-wall restitution, sliding-friction, and rolling-friction values. Training uses a Smooth L1 regression objective, and the inferred set is not assumed to be the only physically possible parameter combination.
 
 ### Experiment-Simulation-Optimization Loop
 
@@ -198,7 +148,7 @@ The three output families each contain particle-particle and particle-wall value
 
 ## Representative Publications
 
-- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681), _Powder Technology_ 468 (2026) 121681. Co-first author, listed first.
+- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681), _Powder Technology_ 468 (2026) 121681. First author.
 - [Deep-learning-based property parameters identification for DEM simulations](https://doi.org/10.1016/j.ces.2026.124100), _Chemical Engineering Science_ 332 (2026) 124100.
 
 </div>

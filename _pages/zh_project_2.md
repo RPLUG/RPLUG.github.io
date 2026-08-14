@@ -12,7 +12,7 @@ lang: zh-CN
 
 ## 项目概述
 
-本项目整合了两项由我主导或共同主导的研究：一项建立从模拟数据到真实实验的非球形颗粒追踪方法，另一项构建有效 DEM 接触参数的闭环辨识框架。两者共同将高速摄影转化为颗粒尺度测量，并利用这些测量结果持续改进模拟。
+本项目整合了两项第一作者研究：一项建立从模拟数据到真实实验的非球形颗粒追踪方法，另一项构建有效 DEM 接触参数的闭环辨识框架。两者共同将高速摄影转化为颗粒尺度测量，并利用这些测量结果持续改进模拟。
 
 {% include figure.liquid loading="eager" path="assets/img/publication_preview/particle_tracking.png" title="深度学习辅助的非球形颗粒追踪流程" class="img-fluid rounded z-depth-1" %}
 
@@ -25,7 +25,7 @@ lang: zh-CN
 
 ## 个人贡献
 
-- **颗粒追踪：**共同第一作者（署名第一）；参与超二次曲面 DEM 数据生成、自动掩膜构建、Mask R-CNN 训练与实验迁移、三帧 PTV、速度场重构、评估和可视化的完整方法链。
+- **颗粒追踪：**第一作者；参与超二次曲面 DEM 数据生成、自动掩膜构建、Mask R-CNN 训练与实验迁移、三帧 PTV、速度场重构、评估和可视化的完整方法链。
 - **参数辨识：**完成端到端计算流程，包括模拟数据集生成、实验数据处理、ViT 开发与推理、局部网格搜索、CMA-ES 优化、结果评估、可视化和软件实现。
 
 <div class="project-module-label">研究模块 01</div>
@@ -36,33 +36,9 @@ lang: zh-CN
 
 ### Mask R-CNN 网络架构
 
-<div class="model-flow model-flow--five" role="group" aria-label="用于颗粒实例分割的 Mask R-CNN 网络架构">
-  <div class="model-flow__node">
-    <span class="model-flow__step">输入</span>
-    <strong>合成或实验图像</strong>
-    <small>高密度非球形颗粒场景</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">主干网络</span>
-    <strong>ResNet-50 + FPN</strong>
-    <small>多尺度特征提取</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">候选区域</span>
-    <strong>区域建议网络 RPN</strong>
-    <small>生成颗粒候选区域</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">特征对齐</span>
-    <strong>RoI Align</strong>
-    <small>获得实例对齐特征</small>
-  </div>
-  <div class="model-flow__node model-flow__node--output">
-    <span class="model-flow__step">任务头</span>
-    <strong>逐颗粒输出</strong>
-    <div class="model-flow__chips"><span>类别</span><span>边界框</span><span>FCN 掩膜</span></div>
-  </div>
-</div>
+{% include figure.liquid loading="lazy" path="assets/img/projects/ai-particle-measurement/mask-rcnn-architecture-original.png" title="论文中的原始 Mask R-CNN 网络结构" class="img-fluid rounded z-depth-1" %}
+
+合成图像或实验图像依次经过 ResNet-50/FPN 特征主干、区域建议网络和 RoI Align，随后由独立任务头输出颗粒类别、边界框和逐像素实例掩膜。
 
 ### 从实例掩膜到速度场
 
@@ -117,35 +93,9 @@ lang: zh-CN
 
 ### Vision Transformer 网络架构
 
-<div class="model-flow model-flow--five" role="group" aria-label="用于 DEM 参数辨识的 Vision Transformer 网络架构">
-  <div class="model-flow__node">
-    <span class="model-flow__step">输入</span>
-    <strong>PVF、AoR 与工况</strong>
-    <small>时间序列速度场和全局运行条件</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">场编码器</span>
-    <strong>1 &times; 1 卷积</strong>
-    <small>将时间维 T 映射到通道维 C</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">Token 化</span>
-    <strong>p &times; p 场切片</strong>
-    <small>线性投影、位置编码和工况 token</small>
-  </div>
-  <div class="model-flow__node">
-    <span class="model-flow__step">编码器</span>
-    <strong>Transformer 模块</strong>
-    <small>多头注意力、MLP、归一化和残差连接</small>
-  </div>
-  <div class="model-flow__node model-flow__node--output">
-    <span class="model-flow__step">回归头</span>
-    <strong>6 个有效参数</strong>
-    <div class="model-flow__chips"><span>恢复系数</span><span>滑动摩擦</span><span>滚动摩擦</span></div>
-  </div>
-</div>
+{% include figure.liquid loading="lazy" path="assets/img/projects/ai-particle-measurement/vit-parameter-architecture-original.png" title="论文中的原始 Vision Transformer 网络结构" class="img-fluid rounded z-depth-1" %}
 
-三类输出分别包含粒—粒和粒—壁两个参数。模型采用 Smooth L1 回归目标；论文并不假设辨识得到的参数组合是唯一可能的物理参数集。
+时间序列 PVF 首先经过 1 &times; 1 卷积和互不重叠的场切片编码；patch embedding、位置信息和运行工况共同进入 Transformer 编码器，MLP 回归头最终输出粒—粒及粒—壁恢复系数、滑动摩擦系数和滚动摩擦系数。模型采用 Smooth L1 回归目标，且不假设辨识结果是唯一可能的物理参数组合。
 
 ### 实验—模拟—优化闭环
 
@@ -199,7 +149,7 @@ lang: zh-CN
 
 ## 代表性论文
 
-- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681)，_Powder Technology_ 468（2026）121681。共同第一作者，署名第一。
+- [An efficient non-spherical particle tracking strategy based on deep-learning and simulation-experiment integration](https://doi.org/10.1016/j.powtec.2025.121681)，_Powder Technology_ 468（2026）121681。第一作者。
 - [Deep-learning-based property parameters identification for DEM simulations](https://doi.org/10.1016/j.ces.2026.124100)，_Chemical Engineering Science_ 332（2026）124100。
 
 </div>
